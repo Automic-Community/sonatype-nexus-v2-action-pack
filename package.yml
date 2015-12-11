@@ -1,0 +1,14 @@
+# Package Build Configuration 
+name: PCK.AUTOMIC_NEXUS
+
+source: ae
+  
+# binary object resource mapping will be defined here
+binaries:
+  
+  - object: RESOURCES/LIBS/PCK.AUTOMIC_NEXUS.PRV.STORE
+    resources: 
+      - name: NEXUSTOOL
+        type: BINARY
+        path: tools/target/nexustool.jar
+        version: 1.0.0
