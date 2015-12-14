@@ -11,7 +11,7 @@ package com.automic.nexus.constants;
 
 public enum Action {
     
-    UPLOAD;
+    UPLOAD_ARTIFACT;
 
     public static String getActionNames() {
         Action[] actions = Action.values();

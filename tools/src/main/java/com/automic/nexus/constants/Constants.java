@@ -26,6 +26,10 @@ public final class Constants {
     public static final String CONNECTION_TIMEOUT = "connectiontimeout";
     public static final String READ_TIMEOUT = "readtimeout";
     public static final int IO_BUFFER_SIZE = 4 * 1024;
+    
+    public static final String BASE_URL = "baseurl";
+    public static final String NEXUS_USERNAME = "username";
+    public static final String NEXUS_PASSWORD = "password";
 
 
     private Constants() {
