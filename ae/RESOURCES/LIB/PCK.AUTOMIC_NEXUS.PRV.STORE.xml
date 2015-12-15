@@ -9,7 +9,7 @@
 </HEADER>
 <STORE>
 <resourceList>
-<row checksum="587CB02A5C13F8B230881EEF4AC2111C909155CE16B95B0BA3748EF38590E2BB" fileType="BINARY" filename="nexustool.jar" hw="*" id="NEXUS-ALL-ALL-ALL" name="NEXUS" platform="*" resname="PCK.AUTOMIC_NEXUS.PRV.STORE-NEXUS-ALL-ALL-ALL" size="2381165" sw="*" type="3" version="1.0.0"/>
+<row checksum="22CC447D3B1A17146312C433C97786989CE9B872096EC9C97015FDE846EDD103" fileType="BINARY" filename="nexustool.jar" hw="*" id="NEXUS-ALL-ALL-ALL" name="NEXUS" platform="*" resname="PCK.AUTOMIC_NEXUS.PRV.STORE-NEXUS-ALL-ALL-ALL" size="2381291" sw="*" type="3" version="1.0.0"/>
 </resourceList>
 </STORE>
 <DOCU_Docu state="1" type="text">

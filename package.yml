@@ -12,3 +12,14 @@ binaries:
         type: BINARY
         path: tools/target/nexustool.jar
         version: 1.0.0
+  - object: RESOURCES/PCK.AUTOMIC_NEXUS.PRV.CUSTOM_TYPES
+    timestamp: disabled
+    resources:
+      - name: DEPLOYMENTTARGET#NEXUS#1 
+        type: TEXT
+        path: ara/types/deploymenttarget/Nexus_DepTarget.xml
+        version: 1.0.0
+      - name: COMPONENT#NEXUS#2 
+        type: TEXT
+        path: ara/types/component/Nexus_Component.xml
+        version: 1.0.0

@@ -28,14 +28,14 @@ public class UploadArtifactAction extends AbstractHttpAction{
 	private File filePath;
 	
 	public UploadArtifactAction() {
-		addOption("groupid", true, "");
-		addOption("artifactid", true, "");
-		addOption("version", true, "");
-		addOption("repository", true, "");
-		addOption("packaging", false, "");
-		addOption("classifier", false, "");
-		addOption("extension", false, "");
-		addOption("filepath", true, "");
+		addOption("groupid", true, "Group ID of the artifact");
+		addOption("artifactid", true, "Artifact ID");
+		addOption("version", true, "Version of the artifact");
+		addOption("repository", true, "Repository in which the artifact is to be uploaded");
+		addOption("packaging", false, "Packaging type of artifact");
+		addOption("classifier", false, "Classifier of the artifact");
+		addOption("extension", false, "Extension of the artifact");
+		addOption("filepath", true, "Artifact location path with full name");
 	}
 	
 	private void prepareInputParameters() throws AutomicException {
