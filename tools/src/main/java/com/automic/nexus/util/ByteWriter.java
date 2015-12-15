@@ -57,7 +57,7 @@ public class ByteWriter {
             bos.write(bytes, offset, length);
         } catch (IOException e) {
             LOGGER.error(ExceptionConstants.UNABLE_TO_WRITEFILE, e);
-            throw new AutomicException(ExceptionConstants.UNABLE_TO_WRITEFILE);
+            throw new AutomicException(ExceptionConstants.UNABLE_TO_WRITEFILE, e);
         }
     }
 
@@ -96,7 +96,7 @@ public class ByteWriter {
 
         } catch (IOException e) {
             LOGGER.error(ExceptionConstants.UNABLE_TO_CLOSE_STREAM, e);
-            throw new AutomicException(ExceptionConstants.UNABLE_TO_CLOSE_STREAM);
+            throw new AutomicException(ExceptionConstants.UNABLE_TO_CLOSE_STREAM, e);
         }
     }
 
@@ -111,7 +111,7 @@ public class ByteWriter {
                 bos.flush();
             } catch (IOException e) {
                 LOGGER.error(ExceptionConstants.UNABLE_TO_FLUSH_STREAM, e);
-                throw new AutomicException(ExceptionConstants.UNABLE_TO_FLUSH_STREAM);
+                throw new AutomicException(ExceptionConstants.UNABLE_TO_FLUSH_STREAM, e);
             }
         }
     }

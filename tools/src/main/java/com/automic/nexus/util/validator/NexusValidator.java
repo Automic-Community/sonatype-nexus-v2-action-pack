@@ -13,6 +13,10 @@ import com.automic.nexus.util.Validator;
 
 public class NexusValidator {
 
+    private NexusValidator() {
+
+    }
+
     public static void checkNotEmpty(String parameter, String parameterName) throws AutomicException {
         if (!Validator.checkNotEmpty(parameter)) {
             throw new AutomicException(String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName,
@@ -34,10 +38,8 @@ public class NexusValidator {
         }
     }
 
-
-
     public static void lessThan(int value, int lessThan, String parameterName) throws AutomicException {
-        if ( value < lessThan ) {
+        if (value < lessThan) {
             String errMsg = String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName, value);
             throw new AutomicException(errMsg);
         }
@@ -46,7 +48,5 @@ public class NexusValidator {
     public static void checkFilePathNotEmpty(String filePath) throws AutomicException {
         checkNotEmpty(filePath, "File Path");
     }
-
-
 
 }

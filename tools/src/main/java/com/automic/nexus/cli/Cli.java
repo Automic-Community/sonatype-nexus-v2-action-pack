@@ -32,7 +32,7 @@ public class Cli {
         } catch (ParseException e) {
             LOGGER.error("Error parsing the command line options", e);
             printHelp(options.getOptions());
-            throw new AutomicException(String.format(ExceptionConstants.INVALID_ARGS, e.getMessage()));
+            throw new AutomicException(String.format(ExceptionConstants.INVALID_ARGS, e));
         }
     }
 

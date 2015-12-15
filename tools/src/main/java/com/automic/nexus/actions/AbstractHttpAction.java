@@ -27,7 +27,7 @@ public abstract class AbstractHttpAction extends AbstractAction {
      * Service end point
      */
     protected String baseUrl;
-    
+
     /**
      * Username to connect to Nexus
      */
@@ -37,7 +37,7 @@ public abstract class AbstractHttpAction extends AbstractAction {
      * Password to Nexus username
      */
     private String password;
-    
+
     /**
      * Service end point
      */
@@ -73,7 +73,7 @@ public abstract class AbstractHttpAction extends AbstractAction {
             client = HttpClientConfig.getClient(this.connectionTimeOut, this.readTimeOut);
             client.addFilter(new GenericResponseFilter());
             if (!isAnonymousAccess()) {
-            	client.addFilter(new HTTPBasicAuthFilter(username, password));
+                client.addFilter(new HTTPBasicAuthFilter(username, password));
             }
             executeSpecific();
         } finally {
@@ -100,13 +100,13 @@ public abstract class AbstractHttpAction extends AbstractAction {
             throw e;
         }
     }
-    
+
     private boolean isAnonymousAccess() {
-    	boolean ret = true;
-    	if(Validator.checkNotEmpty(username) || Validator.checkNotEmpty(password)) {
-    		ret = false;
-    	}
-    	return ret;
+        boolean ret = true;
+        if (Validator.checkNotEmpty(username) || Validator.checkNotEmpty(password)) {
+            ret = false;
+        }
+        return ret;
     }
 
     /**
