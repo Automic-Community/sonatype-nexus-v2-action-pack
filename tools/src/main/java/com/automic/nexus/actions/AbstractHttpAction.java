@@ -3,15 +3,18 @@
  */
 package com.automic.nexus.actions;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.automic.nexus.config.HttpClientConfig;
 import com.automic.nexus.constants.Constants;
+import com.automic.nexus.constants.ExceptionConstants;
 import com.automic.nexus.exception.AutomicException;
 import com.automic.nexus.filter.GenericResponseFilter;
 import com.automic.nexus.util.CommonUtil;
-import com.automic.nexus.util.Validator;
 import com.automic.nexus.util.validator.NexusValidator;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
@@ -26,7 +29,12 @@ public abstract class AbstractHttpAction extends AbstractAction {
     /**
      * Service end point
      */
-    protected String baseUrl;
+    protected Client client;
+
+    /**
+     * Service end point
+     */
+    protected URI baseUrl;
 
     /**
      * Username to connect to Nexus
@@ -39,11 +47,6 @@ public abstract class AbstractHttpAction extends AbstractAction {
     private String password;
 
     /**
-     * Service end point
-     */
-    protected Client client;
-
-    /**
      * Connection timeout in milliseconds
      */
     private int connectionTimeOut;
@@ -52,6 +55,11 @@ public abstract class AbstractHttpAction extends AbstractAction {
      * Read timeout in milliseconds
      */
     private int readTimeOut;
+
+    /**
+     * Check if the user is anonymous
+     */
+    private boolean isAnonymous;
 
     public AbstractHttpAction() {
         addOption(Constants.READ_TIMEOUT, true, "Read timeout");
@@ -70,9 +78,9 @@ public abstract class AbstractHttpAction extends AbstractAction {
     public final void execute() throws AutomicException {
         try {
             prepareCommonInputs();
-            client = HttpClientConfig.getClient(this.connectionTimeOut, this.readTimeOut);
+            client = HttpClientConfig.getClient(baseUrl.getScheme(), this.connectionTimeOut, this.readTimeOut);
             client.addFilter(new GenericResponseFilter());
-            if (!isAnonymousAccess()) {
+            if (!isAnonymous) {
                 client.addFilter(new HTTPBasicAuthFilter(username, password));
             }
             executeSpecific();
@@ -84,29 +92,37 @@ public abstract class AbstractHttpAction extends AbstractAction {
     }
 
     private void prepareCommonInputs() throws AutomicException {
-        this.connectionTimeOut = CommonUtil.parseStringValue(getOptionValue(Constants.CONNECTION_TIMEOUT),
-                Constants.MINUS_ONE);
-        this.readTimeOut = CommonUtil.parseStringValue(getOptionValue(Constants.READ_TIMEOUT), Constants.MINUS_ONE);
-        this.baseUrl = getOptionValue(Constants.BASE_URL);
-        this.username = getOptionValue(Constants.NEXUS_USERNAME);
-        this.password = getOptionValue(Constants.NEXUS_PASSWORD);
-
+        String temp = getOptionValue(Constants.BASE_URL);
         try {
-            NexusValidator.lessThan(readTimeOut, Constants.ZERO, "Read Timeout");
+            this.connectionTimeOut = CommonUtil.parseStringValue(getOptionValue(Constants.CONNECTION_TIMEOUT),
+                    Constants.MINUS_ONE);
             NexusValidator.lessThan(connectionTimeOut, Constants.ZERO, "Connect Timeout");
-            NexusValidator.checkNotEmpty(baseUrl, "Base URL");
+            this.readTimeOut = CommonUtil.parseStringValue(getOptionValue(Constants.READ_TIMEOUT), Constants.MINUS_ONE);
+            NexusValidator.lessThan(readTimeOut, Constants.ZERO, "Read Timeout");
+            this.baseUrl = new URI(temp);
+            this.username = getOptionValue(Constants.NEXUS_USERNAME);
+            this.password = getOptionValue(Constants.NEXUS_PASSWORD);
+            boolean isProvided = CommonUtil.checkNotEmpty(this.username);
+            if (isProvided) {
+                NexusValidator.checkNotEmpty(password, "Password");
+                isAnonymous = false;
+            } else {
+                if (CommonUtil.checkNotEmpty(this.password)) {
+                    String msg = "Invalid user name " + username;
+                    LOGGER.error(msg);
+                    throw new AutomicException(msg);
+                } else {
+                    isAnonymous = true;
+                }
+            }
         } catch (AutomicException e) {
             LOGGER.error(e.getMessage());
             throw e;
+        } catch (URISyntaxException e) {
+            String msg = String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, "URL", temp);
+            LOGGER.error(msg, e);
+            throw new AutomicException(msg, e);
         }
-    }
-
-    private boolean isAnonymousAccess() {
-        boolean ret = true;
-        if (Validator.checkNotEmpty(username) || Validator.checkNotEmpty(password)) {
-            ret = false;
-        }
-        return ret;
     }
 
     /**

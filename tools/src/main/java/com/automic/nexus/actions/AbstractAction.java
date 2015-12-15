@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 import com.automic.nexus.cli.Cli;
 import com.automic.nexus.cli.CliOptions;
+import com.automic.nexus.constants.Constants;
 import com.automic.nexus.exception.AutomicException;
 
 /**
@@ -53,13 +54,9 @@ public abstract class AbstractAction {
     }
 
     public final void executeAction(String[] args) throws AutomicException {
-        try {
-            cli = new Cli(actionOptions, args);
-            cli.log(Arrays.asList(new String[] { }));
-            execute();
-        } finally {
-            cleanUp();
-        }
+        cli = new Cli(actionOptions, args);
+        cli.log(Arrays.asList(new String[] { Constants.NEXUS_PASSWORD }));
+        execute();
     }
 
     /**
@@ -68,8 +65,5 @@ public abstract class AbstractAction {
      * @throws AutomicException
      */
     protected abstract void execute() throws AutomicException;
-
-    protected void cleanUp() {
-    }
 
 }

@@ -28,7 +28,7 @@ public final class ActionFactory {
 
         switch (inputAction) {
             case UPLOAD_ARTIFACT:
-            	action = new UploadArtifactAction();
+                action = new UploadArtifactAction();
                 break;
             default:
                 String msg = "Invalid Action.. Please enter valid action " + Action.getActionNames();

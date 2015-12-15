@@ -4,37 +4,35 @@ import java.io.File;
 
 import com.automic.nexus.constants.ExceptionConstants;
 import com.automic.nexus.exception.AutomicException;
-import com.automic.nexus.util.Validator;
+import com.automic.nexus.util.CommonUtil;
 
 /**
  * This class provides common validations as required by action(s).
  *
  */
 
-public class NexusValidator {
+public final class NexusValidator {
 
     private NexusValidator() {
-
     }
 
     public static void checkNotEmpty(String parameter, String parameterName) throws AutomicException {
-        if (!Validator.checkNotEmpty(parameter)) {
+        if (!CommonUtil.checkNotEmpty(parameter)) {
             throw new AutomicException(String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName,
                     parameter));
         }
     }
 
-    public static void checkFileDirectoryExists(File filePath) throws AutomicException {
-        if (!Validator.checkFileDirectoryExists(filePath)) {
-            String errMsg = String.format(ExceptionConstants.INVALID_FILE, filePath);
-            throw new AutomicException(errMsg);
+    public static void checkFileDirectoryExists(File filePath, String parameterName) throws AutomicException {
+        if (!(filePath.exists() && !filePath.isFile())) {
+            throw new AutomicException(String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName,
+                    filePath));
         }
     }
 
-    public static void checkFileExists(File filePath) throws AutomicException {
-        if (!Validator.checkFileExists(filePath)) {
-            String errMsg = String.format(ExceptionConstants.INVALID_FILE, filePath);
-            throw new AutomicException(errMsg);
+    public static void checkFileExists(File file, String parameterName) throws AutomicException {
+        if (!(file.exists() && file.isFile())) {
+            throw new AutomicException(String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName, file));
         }
     }
 
@@ -43,10 +41,6 @@ public class NexusValidator {
             String errMsg = String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName, value);
             throw new AutomicException(errMsg);
         }
-    }
-
-    public static void checkFilePathNotEmpty(String filePath) throws AutomicException {
-        checkNotEmpty(filePath, "File Path");
     }
 
 }

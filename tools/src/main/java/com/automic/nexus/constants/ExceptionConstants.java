@@ -24,6 +24,10 @@ public final class ExceptionConstants {
     public static final String INVALID_BASE_URL = "Invalid Base URL [%s]";
     public static final String SYSTEM_ERROR = "System Error";
 
+    // Certificate errors
+    public static final String INVALID_KEYSTORE = "Invalid KeyStore.";
+    public static final String SSLCONTEXT_ERROR = "Unable to build secured context.";
+
     private ExceptionConstants() {
     }
 

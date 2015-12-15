@@ -10,7 +10,7 @@ package com.automic.nexus.constants;
  */
 
 public enum Action {
-    
+
     UPLOAD_ARTIFACT;
 
     public static String getActionNames() {

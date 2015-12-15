@@ -1,6 +1,5 @@
 package com.automic.nexus.util;
 
-
 /**
  * Common Utility class contains basic function(s) required by Nexus actions.
  *
@@ -33,13 +32,33 @@ public final class CommonUtil {
      */
     public static int parseStringValue(final String value, int defaultValue) {
         int i = defaultValue;
-        if (Validator.checkNotEmpty(value)) {
+        if (checkNotEmpty(value)) {
             try {
                 i = Integer.parseInt(value);
             } catch (final NumberFormatException nfe) {
             }
         }
         return i;
+    }
+
+    /**
+     * Method to check if a String is not empty
+     *
+     * @param field
+     * @return true if String is not empty else false
+     */
+    public static boolean checkNotEmpty(String field) {
+        return field != null && !field.isEmpty();
+    }
+
+    /**
+     * Method to check if an Object is null
+     *
+     * @param field
+     * @return true or false
+     */
+    public static boolean checkNotNull(Object field) {
+        return field != null;
     }
 
 }

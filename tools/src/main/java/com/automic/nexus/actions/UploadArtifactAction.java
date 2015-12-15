@@ -50,10 +50,8 @@ public class UploadArtifactAction extends AbstractHttpAction {
      * @throws AutomicException
      */
     private void prepareInputParameters() throws AutomicException {
-        String temp = getOptionValue("filepath");
         filePath = new File(getOptionValue("filepath"));
-        NexusValidator.checkFilePathNotEmpty(temp);
-        NexusValidator.checkFileExists(filePath);
+        NexusValidator.checkFileExists(filePath, "Artifact File Path");
 
         groupID = getOptionValue("groupid");
         NexusValidator.checkNotEmpty(groupID, "Group ID");
@@ -79,9 +77,9 @@ public class UploadArtifactAction extends AbstractHttpAction {
         prepareInputParameters();
         WebResource webResource = client.resource(baseUrl).path("service").path("local").path("artifact").path("maven")
                 .path("content");
-        
+
         FileDataBodyPart fp = new FileDataBodyPart("file", filePath, MediaType.APPLICATION_OCTET_STREAM_TYPE);
-        
+
         FormDataMultiPart part = new FormDataMultiPart();
         part.field("g", groupID).field("v", version).field("r", repository).field("a", artifactID)
                 .field("p", packaging).field("c", classifier).field("e", extension).bodyPart(fp);
