@@ -36,6 +36,7 @@ public final class CommonUtil {
             try {
                 i = Integer.parseInt(value);
             } catch (final NumberFormatException nfe) {
+                i = defaultValue;
             }
         }
         return i;
