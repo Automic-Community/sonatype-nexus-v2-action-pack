@@ -1,0 +1,83 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        upload_artifact
+Default Tags
+Test Template     Upload Artifact Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    NexusURL                Username             Password             GroupId                  ArtifactId                Version               Repository               PackagingType    ArtifactClassifier    ArtifactExtension    ArtifactToUpload
+Upload Artifact with Valid Inputs
+                      [Tags]    main_scenarios
+                      OK        ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}        ${Valid_Artifact_Id}      ${Valid_Version}      ${Valid_Repository}      ${EMPTY}         ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+
+Assertion with Invalid Nexus URL
+                      NOK       https://162.123.12.3    ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Group_Id}      ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    ${EMPTY}         ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+
+Assertion with Invalid Username
+                      NOK       ${URL_Nexus}            testing              ${Password_Nexus}    ${Invalid_Group_Id}      ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    ${EMPTY}         ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+
+Assertion with Invalid Password
+                      NOK       ${URL_Nexus}            ${UserName_Nexus}    testing              ${Invalid_Group_Id}      ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    ${EMPTY}         ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+
+Assertion with Invalid Repository
+                      NOK       ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Group_Id}      ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    ${EMPTY}         ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+
+Assertion with Invalid Artifact Path to Upload
+                      NOK       ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Build_Name}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    ${EMPTY}         ${EMPTY}              ${EMPTY}             testing
+
+Assert Nexus URL as a mandatory field
+                      OTHER     ${EMPTY}                ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Build_Name}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    ${EMPTY}         ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+
+Assert Group Id as a mandatory field
+                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${EMPTY}                 ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    ${EMPTY}         ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+
+Assert Artifact Id as a mandatory field
+                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Build_Name}    ${EMPTY}                  ${Invalid_Version}    ${Invalid_Repository}    ${EMPTY}         ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+
+Assert Version as a mandatory field
+                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Build_Name}    ${Invalid_Artifact_Id}    ${EMPTY}              ${Invalid_Repository}    ${EMPTY}         ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+
+Assert Repository as a mandatory field
+                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Build_Name}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${EMPTY}                 ${EMPTY}         ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+
+Assert Artifact to Upload as a mandatory field
+                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Build_Name}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    ${EMPTY}         ${EMPTY}              ${EMPTY}             ${EMPTY}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "UPLOAD ARTIFACT"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Upload Artifact Template
+    [Arguments]    ${OK_NOK}    ${Nexus_URL}    ${Username}    ${Password}    ${Group_Id}    ${Artifact_Id}
+    ...    ${Version}    ${Repository}    ${Packaging_Type}    ${Artifact_Classifier}    ${Artifact_Extension}    ${Artifact_To_Upload}
+    [Documentation]    This test uploads a artifact on Nexus repository
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK, NOK or OTHER.
+    ...    -${Nexus_URL}: This field specifies Nexus URL.
+    ...    -${Username}: This field specifies Username for Nexus.
+    ...    -${Password}: This field specifies the password for Nexus user.
+    ...    -${Group_Id}: This field specifies the Group ID of the artifact.
+    ...    -${Artifact_Id}: This field specifies the Artifact ID of the artifact.
+    ...    -${Version}: This field specifies the artifact version.
+    ...    -${Repository}: This field specifies repository in which you want to upload artifact
+    ...    -${Packaging_Type}: This field specifies the packaging type of the artifact.
+    ...    -${Artifact_Classifier}: This field specifies classifier of the artifact.
+    ...    -${Artifact_Extension}: This field specifies extension of the artifact.
+    ...    -${Artifact_To_Upload}: This field specifies Artifact location with full name which is to be uploaded.
+    Action Create    ${_UPLOAD_ARTIFACT_ACTION}
+    Nexus Authentication    ${Nexus_URL}    ${Username}    ${Password}
+    Artifact Info ${Group_Id}    ${Artifact_Id}    ${Version}    ${Repository}    ${Packaging_Type}    ${Artifact_Classifier}    ${Artifact_Extension}
+    Action Set    &UC4RB_NXS_FILE_PATH#    ${Artifact_To_Upload}
+    Set Overwrite Agent
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure    ELSE
+    ...    Assert Mandatory
+
+Teardown
+    Log    *******End Test "UPLOAD ARTIFACT"*******
