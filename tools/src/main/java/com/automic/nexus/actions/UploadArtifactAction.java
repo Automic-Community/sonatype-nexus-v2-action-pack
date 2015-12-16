@@ -83,7 +83,8 @@ public class UploadArtifactAction extends AbstractHttpAction {
     @Override
     protected void executeSpecific() throws AutomicException {
         prepareInputParameters();
-        WebResource webResource = client.resource(baseUrl).path("service").path("local").path("artifact").path("maven")
+        WebResource webResource = getClient();
+		webResource.path("service").path("local").path("artifact").path("maven")
                 .path("content");
 
         FileDataBodyPart fp = new FileDataBodyPart("file", filePath, MediaType.APPLICATION_OCTET_STREAM_TYPE);
@@ -96,4 +97,11 @@ public class UploadArtifactAction extends AbstractHttpAction {
         webResource.type(part.getMediaType()).post(ClientResponse.class, part);
     }
 
+    /**
+	 * Method to get Logger instance.
+	 * 
+	 */
+	protected Logger getLogger() {
+		return LOGGER;
+	}
 }

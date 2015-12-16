@@ -12,14 +12,19 @@ import org.apache.logging.log4j.Logger;
 
 import com.automic.nexus.constants.ExceptionConstants;
 import com.automic.nexus.exception.AutomicException;
-import com.automic.nexus.filter.GenericResponseFilter;
 import com.automic.nexus.util.CommonUtil;
 import com.automic.nexus.util.ConsoleWriter;
 import com.automic.nexus.util.validator.NexusValidator;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 
+/**
+ * This action is used to retrieve an artifact from Nexus repository with the
+ * given GAV parameters.
+ * 
+ * @author kamalgarg
+ * 
+ */
 public class RetrieveArtifactAction extends AbstractHttpAction {
 
 	private static final Logger LOGGER = LogManager
@@ -73,46 +78,35 @@ public class RetrieveArtifactAction extends AbstractHttpAction {
 
 			extension = getOptionValue("extension");
 		} catch (AutomicException e) {
-			LOGGER.error(e);
+			LOGGER.error(e.getMessage());
 			throw e;
 		}
 	}
 
 	@Override
 	protected void executeSpecific() throws AutomicException {
-		try {
-			prepareInputParameters();
-			initializeClient();
-			client.addFilter(new GenericResponseFilter());
-			if (!isAnonymous) {
-				client.addFilter(new HTTPBasicAuthFilter(username, password));
-			}
-			ClientResponse response = null;
+		prepareInputParameters();
+		WebResource webResource = getClient();
+		ClientResponse response = null;
 
-			WebResource webResource = client.resource(baseUrl).path("service")
-					.path("local").path("artifact").path("maven")
-					.path("content").queryParam("g", groupID)
-					.queryParam("v", version).queryParam("r", repository)
-					.queryParam("a", artifactID);
+		webResource = webResource.path("service").path("local")
+				.path("artifact").path("maven").path("content")
+				.queryParam("g", groupID).queryParam("v", version)
+				.queryParam("r", repository).queryParam("a", artifactID);
 
-			if (CommonUtil.checkNotEmpty(packaging)) {
-				webResource = webResource.queryParam("p", packaging);
-			}
-			if (CommonUtil.checkNotEmpty(classifier)) {
-				webResource = webResource.queryParam("c", classifier);
-			}
-			if (CommonUtil.checkNotEmpty(extension)) {
-				webResource = webResource.queryParam("e", extension);
-			}
-			LOGGER.info("Calling url " + webResource.getURI());
-
-			response = webResource.get(ClientResponse.class);
-			prepareOutput(response);
-		} finally {
-			if (client != null) {
-				client.destroy();
-			}
+		if (CommonUtil.checkNotEmpty(packaging)) {
+			webResource = webResource.queryParam("p", packaging);
 		}
+		if (CommonUtil.checkNotEmpty(classifier)) {
+			webResource = webResource.queryParam("c", classifier);
+		}
+		if (CommonUtil.checkNotEmpty(extension)) {
+			webResource = webResource.queryParam("e", extension);
+		}
+		LOGGER.info("Calling url " + webResource.getURI());
+
+		response = webResource.get(ClientResponse.class);
+		prepareOutput(response);
 
 	}
 
@@ -131,10 +125,11 @@ public class RetrieveArtifactAction extends AbstractHttpAction {
 		}
 
 	}
+
 	/**
-     * Method to get Logger instance.
-     *
-     */
+	 * Method to get Logger instance.
+	 * 
+	 */
 	protected Logger getLogger() {
 		return LOGGER;
 	}
