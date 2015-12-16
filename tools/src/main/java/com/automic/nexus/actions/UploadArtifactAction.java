@@ -72,14 +72,11 @@ public class UploadArtifactAction extends AbstractHttpAction {
             classifier = getOptionValue("classifier");
             packaging = getOptionValue("packaging");
             extension = getOptionValue("extension");
-            boolean hasPackage = CommonUtil.checkNotEmpty(packaging);
-            if (!hasPackage) {
-                boolean hasExtension = CommonUtil.checkNotEmpty(extension);
-                if (!hasExtension) {
-                    String msg = "At least Package or Extension should be provided ";
-                    LOGGER.error(msg);
-                    throw new AutomicException(msg);
-                }
+
+            if (!CommonUtil.checkNotEmpty(packaging) && !CommonUtil.checkNotEmpty(extension)) {
+                String msg = "At least Package or Extension should be provided ";
+                LOGGER.error(msg);
+                throw new AutomicException(msg);
             }
         } catch (AutomicException e) {
             LOGGER.error(e);
@@ -91,8 +88,7 @@ public class UploadArtifactAction extends AbstractHttpAction {
     protected void executeSpecific() throws AutomicException {
         prepareInputParameters();
         WebResource webResource = getClient();
-        webResource = webResource.path("service").path("local").path("artifact").path("maven")
-                .path("content");
+        webResource = webResource.path("service").path("local").path("artifact").path("maven").path("content");
 
         FileDataBodyPart fp = new FileDataBodyPart("file", filePath, MediaType.APPLICATION_OCTET_STREAM_TYPE);
 
