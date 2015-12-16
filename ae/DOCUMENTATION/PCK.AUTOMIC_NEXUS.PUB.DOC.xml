@@ -11,7 +11,41 @@
 <DOC><![CDATA[About Automic's NEXUS Package
 ================================
 
- ]]></DOC>
+Nexus is a repository manager. It allows to proxy, collect, and manage software dependencies and makes it easy to distribute implemented software. With this package we automate the Sonatype Nexus services for the artifact that achieve the given business goal:
+* Upload artifact
+* Retrieve artifact
+
+=ARA Compatibility=
+This Nexus Package also offers cusotm types for all the Nexus actions which further can be used in ARA.
+
+=Supported Nexus versions=
+Following version of Nexus Rest API(s) is supported:
+
+* 1.x
+
+=Limitations=
+* Currently Actions cannot connect to Nexus accepting requests over HTTPS.
+
+=Setup=
+* Oracle JDK 1.7 or higher must be installed on Agent OS and "java" must be set as executable on the same.
+
+* The Agent should be able to access the Nexus URL(s) in order to make HTTP requests.
+
+* Modify the HTTP timeout parameters as per your environment. By default "CONNECTION_TIMEOUT" is defined as 30000 and "READ_TIMEOUT" is defined as 60000. Both are defined in milliseconds. 0 means no timeout.
+
+* You should have connection details to connect to Nexus Services.
+
+* REST API(s) should be enabled for Nexus environment.
+
+=Variables=
+PCK.AUTOMIC_NEXUS.PRV.VARA.PACKAGE_PARAMETERS
+* HTTP timeout parameters can be configured in this variable. Values are defined in milliseconds. 0 means no timeout.
+
+=Actions=
+Following actions are supported for Nexus.
+
+* Action Name: PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT
+This action is used to upload the artifact to Nexus repository using GAV parameters i.e group, artifact, version paramters. A user can upload the artifact using the login credentials (login and password) or can upload anonymously if the user has the rights to upload. It is an asynchronous operation, user needs to cross check if the artiact has been uploaded.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>

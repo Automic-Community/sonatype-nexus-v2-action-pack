@@ -56,7 +56,7 @@
 <node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
 <PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
-<UC4RB_NXS_NEXUS_URLs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_NEXUS_URL#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
+<UC4RB_NXS_BASE_URLs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_BASE_URL#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
 <UC4RB_NXS_PASSWORDs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_PASSWORD#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
 <UC4RB_NXS_USERNAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_USERNAME#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
 </PRPTBOX>
@@ -134,7 +134,7 @@
 <node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
 <PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
-<UC4RB_NXS_NEXUS_URLs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_NEXUS_URL#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
+<UC4RB_NXS_BASE_URLs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_BASE_URL#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
 <UC4RB_NXS_PASSWORDs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_PASSWORD#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
 <UC4RB_NXS_USERNAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_USERNAME#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
 </PRPTBOX>
@@ -198,7 +198,7 @@
 <node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
 <PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
-<UC4RB_NXS_NEXUS_URLs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_NEXUS_URL#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
+<UC4RB_NXS_BASE_URLs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_BASE_URL#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
 <UC4RB_NXS_PASSWORDs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_PASSWORD#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
 <UC4RB_NXS_USERNAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_USERNAME#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION"/>
 </PRPTBOX>
@@ -330,7 +330,49 @@
 <MSCRI/>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[= Action name =
+PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT
+
+= General description =
+This action is used to upload the artifact to Nexus repository using GAV parameters i.e group, artifact, version paramters. A user can upload the artifact using the login credentials (login and password) or can upload anonymously if the user has the rights to upload. It is an asynchronous operation, user needs to cross check if the artiact has been uploaded.
+
+= Inputs =
+* Nexus URL		: Specify URL of your Nexus repository REST API. Example http://127.0.0.1:8081/nexus/
+* Username 		: Specify your Nexus repository REST API Username. 
+* Password 		: Specify your Nexus repository Rest API password.
+* Group ID 		: Specify Group ID of the artifact. E.g. com.sun.jersey
+* Artifact ID		: Specify Artifact ID. E.g. jersey-client
+* Version		: Specify artifact version. E.g. 1.13
+* Repository		: Specify repository in which you want to upload artifact. E.g. myrepo
+* Packaging Type	: Specify packaging type of the artifact. E.g. jar
+* Artifact Classifier	: Specify classifier of the artifact. E.g. sources
+* Artifact Extension	: Specify extension of the artifact. E.g. jar
+* Overwrite Agent	: Overwrites the default agent
+* Overwrite Login	: Overwrites the default login
+
+= Behavior =
+* If the access setting for the repository is set to "disable redeploy", then user cannot deploy the same artifact again.
+* If the access setting for the repository is set to "read-only", then user cannot deploy any artifact in nexus artifactory.
+* If the user wants to upload an artifact for the first time (i.e. a new component is being created), user necessarily needs to give the "Packaging type" in the input.
+* If the user wants to upload an artifact to some already existing component, then user needs to give either the "Packaging type" or "Extension".
+
+=Return Value=
+(none)
+
+= Outputs =
+* Return code is 0 in case of success.
+* Return code is 1 in case of failure.
+* Return code is 2 in case of connection timed out !!
+
+= Rollback =
+(none)
+
+= Logging =
+AE logs will be displayed in the AE report.
+Java logs will be created at \temp\nexus.log under agent installation directory.
+
+= Example =
+(none)]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
