@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-15"?>
-<uc-export clientvers="11.0.0-sprint.20141111.1610+build.2828">
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
 <DOCU name="PCK.AUTOMIC_NEXUS.PUB.DOC">
 <HEADER state="1">
 <Title>Package documentation</Title>
@@ -19,12 +18,11 @@ Nexus is a repository manager. It allows to proxy, collect, and manage software 
 This Nexus Package also offers cusotm types for all the Nexus actions which further can be used in ARA.
 
 =Supported Nexus versions=
-Following version of Nexus Rest API(s) is supported:
-
-* 1.x
+Following version of Nexus is supported:
+* Sonatype Nexus 2.11.4
 
 =Limitations=
-* Currently Actions cannot connect to Nexus accepting requests over HTTPS.
+(none)
 
 =Setup=
 * Oracle JDK 1.7 or higher must be installed on Agent OS and "java" must be set as executable on the same.
@@ -36,6 +34,8 @@ Following version of Nexus Rest API(s) is supported:
 * You should have connection details to connect to Nexus Services.
 
 * REST API(s) should be enabled for Nexus environment.
+
+* If required, Anonymous access should be enabled for Nexus environment to run actions without username and password.
 
 =Variables=
 PCK.AUTOMIC_NEXUS.PRV.VARA.PACKAGE_PARAMETERS
