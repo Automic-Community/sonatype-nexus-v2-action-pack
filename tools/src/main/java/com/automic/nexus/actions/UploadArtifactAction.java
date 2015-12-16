@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.automic.nexus.exception.AutomicException;
+import com.automic.nexus.util.CommonUtil;
 import com.automic.nexus.util.validator.NexusValidator;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -64,12 +65,19 @@ public class UploadArtifactAction extends AbstractHttpAction {
 
         repository = getOptionValue("repository");
         NexusValidator.checkNotEmpty(repository, "Repository");
-
-        packaging = getOptionValue("packaging");
-
+        
         classifier = getOptionValue("classifier");
-
+        packaging = getOptionValue("packaging");
         extension = getOptionValue("extension");
+        boolean hasPackage = CommonUtil.checkNotEmpty(packaging);
+        if(!hasPackage) {
+            boolean hasExtension = CommonUtil.checkNotEmpty(extension);
+            if(!hasExtension) {
+                String msg = "At least Package or Extension should be provided ";
+                LOGGER.error(msg);
+                throw new AutomicException(msg);
+            }
+        }
     }
 
     @Override
