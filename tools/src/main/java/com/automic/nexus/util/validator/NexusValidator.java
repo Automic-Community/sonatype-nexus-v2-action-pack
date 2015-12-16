@@ -24,9 +24,10 @@ public final class NexusValidator {
     }
 
     public static void checkFileDirectoryExists(File filePath, String parameterName) throws AutomicException {
-        if (!(filePath.exists() && !filePath.isFile())) {
-            throw new AutomicException(String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName,
-                    filePath));
+        File parent = filePath.getParentFile();
+        if (!(parent != null && parent.exists() && !parent.isFile())) {
+            String msg = String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName, parent);
+            throw new AutomicException(msg);
         }
     }
 
