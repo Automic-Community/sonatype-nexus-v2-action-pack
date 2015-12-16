@@ -6,26 +6,22 @@ package com.automic.nexus.actions;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.automic.nexus.config.HttpClientConfig;
 import com.automic.nexus.constants.Constants;
 import com.automic.nexus.constants.ExceptionConstants;
 import com.automic.nexus.exception.AutomicException;
-import com.automic.nexus.filter.GenericResponseFilter;
 import com.automic.nexus.util.CommonUtil;
 import com.automic.nexus.util.validator.NexusValidator;
 import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 
 /**
  * This class defines the execution of any action.It provides some initializations and validations on common inputs .The
  * child actions will implement its executeSpecific() method as per their own need.
  */
 public abstract class AbstractHttpAction extends AbstractAction {
-    private static final Logger LOGGER = LogManager.getLogger(AbstractHttpAction.class);
-
+    
     /**
      * Service end point
      */
@@ -39,12 +35,12 @@ public abstract class AbstractHttpAction extends AbstractAction {
     /**
      * Username to connect to Nexus
      */
-    private String username;
+    protected String username;
 
     /**
      * Password to Nexus username
      */
-    private String password;
+    protected String password;
 
     /**
      * Connection timeout in milliseconds
@@ -59,7 +55,7 @@ public abstract class AbstractHttpAction extends AbstractAction {
     /**
      * Check if the user is anonymous
      */
-    private boolean isAnonymous;
+    protected boolean isAnonymous;
 
     public AbstractHttpAction() {
         addOption(Constants.READ_TIMEOUT, true, "Read timeout");
@@ -76,19 +72,8 @@ public abstract class AbstractHttpAction extends AbstractAction {
      *             exception while executing an action
      */
     public final void execute() throws AutomicException {
-        try {
             prepareCommonInputs();
-            client = HttpClientConfig.getClient(baseUrl.getScheme(), this.connectionTimeOut, this.readTimeOut);
-            client.addFilter(new GenericResponseFilter());
-            if (!isAnonymous) {
-                client.addFilter(new HTTPBasicAuthFilter(username, password));
-            }
             executeSpecific();
-        } finally {
-            if (client != null) {
-                client.destroy();
-            }
-        }
     }
 
     private void prepareCommonInputs() throws AutomicException {
@@ -109,18 +94,18 @@ public abstract class AbstractHttpAction extends AbstractAction {
             } else {
                 if (CommonUtil.checkNotEmpty(this.password)) {
                     String msg = "Invalid user name " + username;
-                    LOGGER.error(msg);
+                    getLogger().error(msg);
                     throw new AutomicException(msg);
                 } else {
                     isAnonymous = true;
                 }
             }
         } catch (AutomicException e) {
-            LOGGER.error(e.getMessage());
+            getLogger().error(e.getMessage());
             throw e;
         } catch (URISyntaxException e) {
             String msg = String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, "URL", temp);
-            LOGGER.error(msg, e);
+            getLogger().error(msg, e);
             throw new AutomicException(msg, e);
         }
     }
@@ -131,5 +116,19 @@ public abstract class AbstractHttpAction extends AbstractAction {
      * @throws AutomicException
      */
     protected abstract void executeSpecific() throws AutomicException;
-
+    
+    /**
+     * Method to get Logger instance.
+     *
+     */
+    protected abstract Logger getLogger();
+    
+    /**
+     * Method to initialize Client instance.
+     * @throws AutomicException 
+     *
+     */
+    protected void initializeClient() throws AutomicException{
+    	client = HttpClientConfig.getClient(baseUrl.getScheme(), this.connectionTimeOut, this.readTimeOut);
+    }
 }
