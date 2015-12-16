@@ -43,22 +43,18 @@ public class RetrieveArtifactAction extends AbstractHttpAction {
 		addOption("groupid", true, "Group ID of the artifact");
 		addOption("artifactid", true, "Artifact ID");
 		addOption("version", true, "Version of the artifact");
-		addOption("repository", true,
-				"Repository in which the artifact is located");
+		addOption("repository", true,"Repository in which the artifact is located");
 		addOption("packaging", false, "Packaging type of artifact");
 		addOption("classifier", false, "Classifier of the artifact");
 		addOption("extension", false, "Extension of the artifact");
-		addOption("archivefilepath", true,
-				"Target file path to save the artifact");
+		addOption("archivefilepath", true,"Target file path to save the artifact");
 	}
 
 	private void prepareInputParameters() throws AutomicException {
 		try {
 			archiveFilePath = getOptionValue("archivefilepath");
-			NexusValidator.checkNotEmpty(archiveFilePath,
-					"Target archive file path");
-			NexusValidator.checkFileDirectoryExists(new File(archiveFilePath),
-					"Target archive file path");
+			NexusValidator.checkNotEmpty(archiveFilePath,"Target archive file path");
+			NexusValidator.checkFileDirectoryExists(new File(archiveFilePath),"Target archive file path");
 
 			groupID = getOptionValue("groupid");
 			NexusValidator.checkNotEmpty(groupID, "Group ID");
@@ -115,13 +111,10 @@ public class RetrieveArtifactAction extends AbstractHttpAction {
 		try (InputStream is = response.getEntityInputStream()) {
 			storedLocation = Paths.get(archiveFilePath.toString());
 			Files.copy(is, storedLocation);
-			ConsoleWriter.writeln("UC4RB_NXS_ARCHIVE_PATH ::= "
-					+ storedLocation);
+			ConsoleWriter.writeln("UC4RB_NXS_ARCHIVE_PATH ::= "+ storedLocation);
 		} catch (IOException e) {
-			LOGGER.error(
-					"Error while creating archive file from input stream ", e);
-			throw new AutomicException(String.format(
-					ExceptionConstants.UNABLE_TO_WRITEFILE, storedLocation));
+			LOGGER.error("Error while creating archive file from input stream ", e);
+			throw new AutomicException(String.format(ExceptionConstants.UNABLE_TO_WRITEFILE, storedLocation));
 		}
 
 	}
