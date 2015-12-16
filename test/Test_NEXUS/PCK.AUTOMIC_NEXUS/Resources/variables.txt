@@ -1,0 +1,17 @@
+*** Settings ***
+Resource          ../../../Env/default.txt
+
+*** Variables ***
+#---- Promptset Fields --------------------------------------------------------------------------------------
+${URL_Nexus}      http://10.127.128.150:8081
+${UserName_Nexus}    admin
+${Password_Nexus}    admin123
+${Invalid_Group_Id}    test-g
+${Invalid_Artifact_Id}    test-a
+${Invalid_Version}    test-v
+${Invalid_Repository}    test-repo
+${Valid_Repository}    TestRepo
+${Valid_Group_Id}    Test-g
+${Valid_Artifact_Id}    Test-a
+${Valid_Version}    Test-v
+${Upload_Artifact}    ${EXECDIR}\\test.jar
