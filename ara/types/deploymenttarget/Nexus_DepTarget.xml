@@ -11,7 +11,7 @@
       </Property>
     </Group>
     <Group name="ServiceEndpoints" displayName="Service Endpoints">
-      <Property name="nexus_url" displayName="Identity URL" mode="MANDATORY" type="SingleLineText">
+      <Property name="nexus_url" displayName="Nexus URL" mode="MANDATORY" type="SingleLineText">
         <Description>Specify URL of your Nexus repository. Example http://127.0.0.1:8081/nexus/</Description>
       </Property>
     </Group>
