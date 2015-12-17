@@ -53,8 +53,8 @@ public class RetrieveArtifactAction extends AbstractHttpAction {
 	private void prepareInputParameters() throws AutomicException {
 		try {
 			archiveFilePath = getOptionValue("archivefilepath");
-			NexusValidator.checkNotEmpty(archiveFilePath,"Target archive file path");
-			NexusValidator.checkFileDirectoryExists(new File(archiveFilePath),"Target archive file path");
+			NexusValidator.checkNotEmpty(archiveFilePath,"Folder to save in");
+			NexusValidator.checkFileDirectoryExists(new File(archiveFilePath),"Folder to save in");
 
 			groupID = getOptionValue("groupid");
 			NexusValidator.checkNotEmpty(groupID, "Group ID");
