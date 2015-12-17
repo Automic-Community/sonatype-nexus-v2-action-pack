@@ -16,37 +16,37 @@ Upload Artifact with Valid Inputs
                       OK        ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}      ${Valid_Artifact_Id}      ${Valid_Version}      ${Valid_Repository}      jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
 
 Assertion with Invalid Nexus URL
-                      NOK       https://162.123.12.3    ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Group_Id}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+                      NOK       https://162.123.12.3    ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}      ${Valid_Artifact_Id}      ${Valid_Version}      ${Valid_Repository}      jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
 
 Assertion with Invalid Username
-                      NOK       ${URL_Nexus}            testing              ${Password_Nexus}    ${Invalid_Group_Id}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+                      NOK       ${URL_Nexus}            testing              ${Password_Nexus}    ${Valid_Group_Id}      ${Valid_Artifact_Id}      ${Valid_Version}      ${Valid_Repository}      jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
 
 Assertion with Invalid Password
-                      NOK       ${URL_Nexus}            ${UserName_Nexus}    testing              ${Invalid_Group_Id}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+                      NOK       ${URL_Nexus}            ${UserName_Nexus}    testing              ${Valid_Group_Id}      ${Valid_Artifact_Id}      ${Valid_Version}      ${Valid_Repository}      jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
 
 Assertion with Invalid Repository
-                      NOK       ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Group_Id}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+                      NOK       ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}      ${Valid_Artifact_Id}      ${Valid_Version}      ${Invalid_Repository}    jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
 
 Assertion with Invalid Artifact Path to Upload
-                      NOK       ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Group_Id}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    jar              ${EMPTY}              ${EMPTY}             testing
+                      NOK       ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}      ${Valid_Artifact_Id}      ${Valid_Version}      ${Valid_Repository}      jar              ${EMPTY}              ${EMPTY}             testing
 
 Upload Artifact When Packaging Type and Artifact Extension, both are left empty
                       NOK       ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}      ${Valid_Artifact_Id}      ${Valid_Version}      ${Valid_Repository}      ${EMPTY}         ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
 
 Assert Nexus URL as a mandatory field
-                      OTHER     ${EMPTY}                ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Group_Id}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+                      OTHER     ${EMPTY}                ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}      ${Valid_Artifact_Id}      ${Valid_Version}      ${Valid_Repository}      jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
 
 Assert Group Id as a mandatory field
-                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${EMPTY}               ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${EMPTY}               ${Valid_Artifact_Id}      ${Valid_Version}      ${Valid_Repository}      jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
 
 Assert Artifact Id as a mandatory field
-                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Group_Id}    ${EMPTY}                  ${Invalid_Version}    ${Invalid_Repository}    jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}      ${EMPTY}                  ${Valid_Version}      ${Valid_Repository}      jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
 
 Assert Version as a mandatory field
-                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Group_Id}    ${Invalid_Artifact_Id}    ${EMPTY}              ${Invalid_Repository}    jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}      ${Valid_Artifact_Id}      ${EMPTY}              ${Valid_Repository}      jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
 
 Assert Repository as a mandatory field
-                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Group_Id}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${EMPTY}                 jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
+                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}      ${Valid_Artifact_Id}      ${Valid_Version}      ${EMPTY}                 jar              ${EMPTY}              ${EMPTY}             ${Upload_Artifact}
 
 Assert Artifact to Upload as a mandatory field
                       OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Invalid_Group_Id}    ${Invalid_Artifact_Id}    ${Invalid_Version}    ${Invalid_Repository}    jar              ${EMPTY}              ${EMPTY}             ${EMPTY}
