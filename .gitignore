@@ -1,9 +1,7 @@
-ae/connection.properties
 tools/target
 tools/.checkstyle
 tools/.classpath
 tools/.project
 tools/.settings
-config.yml
-ae/config.yml
 tools/bin
+temp
