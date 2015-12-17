@@ -20,7 +20,7 @@ import com.sun.jersey.api.client.WebResource;
 
 /**
  * This action is used to retrieve an artifact from Nexus repository with the
- * given GAV parameters.
+ * given parameters.
  * 
  * @author kamalgarg
  * 
@@ -111,7 +111,7 @@ public class RetrieveArtifactAction extends AbstractHttpAction {
 		try (InputStream is = response.getEntityInputStream()) {
 			storedLocation = Paths.get(archiveFilePath.toString());
 			Files.copy(is, storedLocation);
-			ConsoleWriter.writeln("UC4RB_NXS_ARCHIVE_PATH ::= "+ storedLocation);
+			ConsoleWriter.writeln("UC4RB_NXS_ARCHIVE_PATH ::="+ storedLocation);
 		} catch (IOException e) {
 			LOGGER.error("Error while creating archive file from input stream ", e);
 			throw new AutomicException(String.format(ExceptionConstants.UNABLE_TO_WRITEFILE, storedLocation));

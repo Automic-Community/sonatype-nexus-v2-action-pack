@@ -14,7 +14,6 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
-
 /**
  * This action is used to upload an artifact to Nexus repository with the given GAV parameters.
  * 
@@ -51,32 +50,36 @@ public class UploadArtifactAction extends AbstractHttpAction {
      * @throws AutomicException
      */
     private void prepareInputParameters() throws AutomicException {
-        filePath = new File(getOptionValue("filepath"));
-        NexusValidator.checkFileExists(filePath, "Artifact File Path");
+        try {
+            String temp = getOptionValue("filepath");
+            NexusValidator.checkNotEmpty(temp, "Artifact File Path");
+            filePath = new File(temp);
+            NexusValidator.checkFileExists(filePath, "Artifact File Path");
 
-        groupID = getOptionValue("groupid");
-        NexusValidator.checkNotEmpty(groupID, "Group ID");
+            groupID = getOptionValue("groupid");
+            NexusValidator.checkNotEmpty(groupID, "Group ID");
 
-        artifactID = getOptionValue("artifactid");
-        NexusValidator.checkNotEmpty(artifactID, "Artifact ID");
+            artifactID = getOptionValue("artifactid");
+            NexusValidator.checkNotEmpty(artifactID, "Artifact ID");
 
-        version = getOptionValue("version");
-        NexusValidator.checkNotEmpty(version, "Version");
+            version = getOptionValue("version");
+            NexusValidator.checkNotEmpty(version, "Version");
 
-        repository = getOptionValue("repository");
-        NexusValidator.checkNotEmpty(repository, "Repository");
-        
-        classifier = getOptionValue("classifier");
-        packaging = getOptionValue("packaging");
-        extension = getOptionValue("extension");
-        boolean hasPackage = CommonUtil.checkNotEmpty(packaging);
-        if(!hasPackage) {
-            boolean hasExtension = CommonUtil.checkNotEmpty(extension);
-            if(!hasExtension) {
+            repository = getOptionValue("repository");
+            NexusValidator.checkNotEmpty(repository, "Repository");
+
+            classifier = getOptionValue("classifier");
+            packaging = getOptionValue("packaging");
+            extension = getOptionValue("extension");
+
+            if (!CommonUtil.checkNotEmpty(packaging) && !CommonUtil.checkNotEmpty(extension)) {
                 String msg = "At least Package or Extension should be provided ";
                 LOGGER.error(msg);
                 throw new AutomicException(msg);
             }
+        } catch (AutomicException e) {
+            LOGGER.error(e);
+            throw e;
         }
     }
 
@@ -84,8 +87,7 @@ public class UploadArtifactAction extends AbstractHttpAction {
     protected void executeSpecific() throws AutomicException {
         prepareInputParameters();
         WebResource webResource = getClient();
-		webResource.path("service").path("local").path("artifact").path("maven")
-                .path("content");
+        webResource = webResource.path("service").path("local").path("artifact").path("maven").path("content");
 
         FileDataBodyPart fp = new FileDataBodyPart("file", filePath, MediaType.APPLICATION_OCTET_STREAM_TYPE);
 
@@ -97,11 +99,9 @@ public class UploadArtifactAction extends AbstractHttpAction {
         webResource.type(part.getMediaType()).post(ClientResponse.class, part);
     }
 
-    /**
-	 * Method to get Logger instance.
-	 * 
-	 */
-	protected Logger getLogger() {
-		return LOGGER;
-	}
+    @Override
+    protected Logger getLogger() {
+        return LOGGER;
+    }
+
 }

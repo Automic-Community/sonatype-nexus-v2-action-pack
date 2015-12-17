@@ -31,15 +31,15 @@ public final class ClientHelper {
      *            of options with key as option name and value is option value
      * @throws AutomicException
      */
-    @SuppressWarnings("unchecked")
-	public static void executeAction(String[] actionParameters) throws AutomicException {
+
+    public static void executeAction(String[] actionParameters) throws AutomicException {
         String actionName = new Cli(new CliOptions(), actionParameters).getOptionValue(Constants.ACTION);
         LOGGER.info("Execution starts for action [" + actionName + "]...");
 
         AbstractAction action = null;
         try {
-            Class<AbstractAction> classDefinition = (Class<AbstractAction>) Class.forName(getCanonicalName(actionName));
-            action = classDefinition.newInstance();
+            Class<?> classDefinition = Class.forName(getCanonicalName(actionName));
+            action = (AbstractAction) classDefinition.newInstance();
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             String msg = String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, Constants.ACTION, actionName);
             LOGGER.error(msg, e);
