@@ -21,6 +21,7 @@ public class AutomicRuntimeException extends RuntimeException {
         super(message);
 
     }
+
     public AutomicRuntimeException(String message, Exception e) {
         super(message, e);
 

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ComponentType attachedToTarget="true">
+	<Name>Nexus</Name>
+	<DefaultDeploymentTargetType>Nexus</DefaultDeploymentTargetType>
+	<Properties>
+		<Group name="ArtifactParameters" displayName="Artifact Parameters">
+			<Property name="group_id" displayName="Group ID" mode="MANDATORY" type="SingleLineText">
+				<Description>Specify Group ID of the artifact. E.g. com.sun.jersey</Description>
+			</Property>
+			<Property name="artifact_id" displayName="Artifact ID" mode="MANDATORY" type="SingleLineText">
+				<Description>Specify Artifact ID. E.g. jersey-client</Description>
+			</Property>
+			<Property name="version" displayName="Version" mode="MANDATORY" type="SingleLineText">
+				<Description>Specify artifact version. E.g. 1.13</Description>
+			</Property>
+			<Property name="repository" displayName="Repository" mode="MANDATORY" type="SingleLineText">
+				<Description>Specify repository in which you want to upload artifact. E.g. myrepo</Description>
+			</Property>
+			<Property name="packaging" displayName="Packaging Type" mode="EDITABLE" type="SingleLineText">
+				<Description>Specify packaging type of the artifact. E.g. jar</Description>
+			</Property>
+			<Property name="classifier" displayName="Artifact Classifier" mode="EDITABLE" type="SingleLineText">
+				<Description>Specify classifier of the artifact. E.g. sources</Description>
+			</Property>
+			<Property name="extension" displayName="Artifact Extension" mode="EDITABLE" type="SingleLineText">
+				<Description>Specify extension of the artifact. E.g. jar</Description>
+			</Property>
+			<Property name="filepath" displayName="Artifact to Upload" mode="MANDATORY" type="SingleLineText">
+				<Description>Artifact location path with full name. E.g. C:\jersey-client-1.13.jar</Description>
+			</Property>
+		</Group>
+	</Properties>
+	<DynamicProperties>
+		<Property name="/nexus/endpoint/nexus_url" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{@target/custom/nexus_url}</Value>
+			<Description>Specify URL of your Nexus repository. Example http://127.0.0.1:8081/nexus/3</Description>
+		</Property>
+		<Property name="/nexus/auth/username" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{@target/custom/username}</Value>
+			<Description>Specify your Nexus repository username.</Description>
+		</Property>
+		<Property name="/nexus/auth/password" protected="false" highlighted="false" type="Protected" allowCustomValues="false">
+			<Value>{@target/custom/password}</Value>
+			<Description>Specify your Nexus repository password.</Description>
+		</Property>
+		<Property name="/nexus/artifact/group_id" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{/custom/group_id}</Value>
+			<Description>Specify Group ID of the artifact. E.g. com.sun.jersey</Description>
+		</Property>
+		<Property name="/nexus/artifact/artifact_id" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{/custom/artifact_id}</Value>
+			<Description>Specify Artifact ID. E.g. jersey-client</Description>
+		</Property>
+		<Property name="/nexus/artifact/version" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{/custom/version}</Value>
+			<Description>Specify artifact version. E.g. 1.13</Description>
+		</Property>
+		<Property name="/nexus/artifact/repository" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{/custom/repository}</Value>
+			<Description>Specify repository in which you want to upload artifact. E.g. myrepo</Description>
+		</Property>
+		<Property name="/nexus/artifact/packaging" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{/custom/packaging}</Value>
+			<Description>Specify packaging type of the artifact. E.g. jar</Description>
+		</Property>
+		<Property name="/nexus/artifact/classifier" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{/custom/classifier}</Value>
+			<Description>Specify classifier of the artifact. E.g. sources</Description>
+		</Property>
+		<Property name="/nexus/artifact/extension" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{/custom/extension}</Value>
+			<Description>Specify extension of the artifact. E.g. jar</Description>
+		</Property>
+		<Property name="/nexus/artifact/filepath" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{/custom/filepath}</Value>
+			<Description>Artifact location path with full name. E.g. C:\jersey-client-1.13.jar</Description>
+		</Property>
+	</DynamicProperties>
+</ComponentType>

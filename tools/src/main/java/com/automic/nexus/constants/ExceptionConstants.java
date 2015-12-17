@@ -17,12 +17,13 @@ public final class ExceptionConstants {
 
     public static final String UNABLE_TO_WRITEFILE = "Error writing file ";
 
-    public static final String INVALID_FILE = "File [%s] is invalid. Possibly file does not exist ";
-    public static final String EMPTY_DIRECTORY = "No Files to attach in the given folder [%s] ";
-
     public static final String INVALID_INPUT_PARAMETER = "Invalid value for parameter [%s] : [%s]";
     public static final String INVALID_BASE_URL = "Invalid Base URL [%s]";
     public static final String SYSTEM_ERROR = "System Error";
+
+    // Certificate errors
+    public static final String INVALID_KEYSTORE = "Invalid KeyStore.";
+    public static final String SSLCONTEXT_ERROR = "Unable to build secured context.";
 
     private ExceptionConstants() {
     }
