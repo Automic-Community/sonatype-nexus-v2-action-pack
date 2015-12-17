@@ -4,16 +4,16 @@
 	<DefaultDeploymentTargetType>Nexus</DefaultDeploymentTargetType>
 	<Properties>
 		<Group name="ArtifactParameters" displayName="Artifact Parameters">
-			<Property name="group_id" displayName="Group ID" mode="EDITABLE" type="SingleLineText">
+			<Property name="group_id" displayName="Group ID" mode="MANDATORY" type="SingleLineText">
 				<Description>Specify Group ID of the artifact. E.g. com.sun.jersey</Description>
 			</Property>
-			<Property name="artifact_id" displayName="Artifact ID" mode="EDITABLE" type="SingleLineText">
+			<Property name="artifact_id" displayName="Artifact ID" mode="MANDATORY" type="SingleLineText">
 				<Description>Specify Artifact ID. E.g. jersey-client</Description>
 			</Property>
-			<Property name="version" displayName="Version" mode="EDITABLE" type="SingleLineText">
+			<Property name="version" displayName="Version" mode="MANDATORY" type="SingleLineText">
 				<Description>Specify artifact version. E.g. 1.13</Description>
 			</Property>
-			<Property name="repository" displayName="Repository" mode="EDITABLE" type="SingleLineText">
+			<Property name="repository" displayName="Repository" mode="MANDATORY" type="SingleLineText">
 				<Description>Specify repository in which you want to upload artifact. E.g. myrepo</Description>
 			</Property>
 			<Property name="packaging" displayName="Packaging Type" mode="EDITABLE" type="SingleLineText">
@@ -25,7 +25,7 @@
 			<Property name="extension" displayName="Artifact Extension" mode="EDITABLE" type="SingleLineText">
 				<Description>Specify extension of the artifact. E.g. jar</Description>
 			</Property>
-			<Property name="filepath" displayName="Artifact to Upload" mode="EDITABLE" type="SingleLineText">
+			<Property name="filepath" displayName="Artifact to Upload" mode="MANDATORY" type="SingleLineText">
 				<Description>Artifact location path with full name. E.g. C:\jersey-client-1.13.jar</Description>
 			</Property>
 		</Group>
@@ -33,15 +33,15 @@
 	<DynamicProperties>
 		<Property name="/nexus/endpoint/nexus_url" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
 			<Value>{@target/custom/nexus_url}</Value>
-			<Description>Specify URL of your Nexus repository REST API. Example http://127.0.0.1:8081/nexus/3</Description>
+			<Description>Specify URL of your Nexus repository. Example http://127.0.0.1:8081/nexus/3</Description>
 		</Property>
 		<Property name="/nexus/auth/username" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
 			<Value>{@target/custom/username}</Value>
-			<Description>Specify your Nexus repository REST API Username.</Description>
+			<Description>Specify your Nexus repository username.</Description>
 		</Property>
-		<Property name="/nexus/auth/password" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+		<Property name="/nexus/auth/password" protected="false" highlighted="false" type="Protected" allowCustomValues="false">
 			<Value>{@target/custom/password}</Value>
-			<Description>Specify your Nexus repository Rest API password.</Description>
+			<Description>Specify your Nexus repository password.</Description>
 		</Property>
 		<Property name="/nexus/artifact/group_id" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
 			<Value>{/custom/group_id}</Value>

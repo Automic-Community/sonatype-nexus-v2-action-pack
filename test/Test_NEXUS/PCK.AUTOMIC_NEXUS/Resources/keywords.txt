@@ -93,7 +93,7 @@ Genarate String
 
 Nexus Authentication
     [Arguments]    ${Nexus_URL}    ${Username}    ${Password}
-    Action Set    &UC4RB_NXS_NEXUS_URL#    ${Nexus_URL}
+    Action Set    &UC4RB_NXS_BASE_URL#    ${Nexus_URL}
     Action Set    &UC4RB_NXS_USERNAME#    ${UserName}
     Action Set    &UC4RB_NXS_PASSWORD#    ${Password}
 
