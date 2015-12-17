@@ -21,9 +21,9 @@
 <IntAccount/>
 <AutoDeactNo>0</AutoDeactNo>
 <AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
-<AutoDeactErrorFree>1</AutoDeactErrorFree>
+<AutoDeactErrorFree>0</AutoDeactErrorFree>
 <DeactWhen/>
-<AutoDeactAlways>0</AutoDeactAlways>
+<AutoDeactAlways>1</AutoDeactAlways>
 <DeactDelay>0</DeactDelay>
 <ActAtRun>1</ActAtRun>
 <UC4Priority>0</UC4Priority>
@@ -336,6 +336,12 @@
 PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT
 = General description =
 This action is used to retrieve an artifact from Nexus repository using GAV parameters i.e group, artifact, version parameters. A user can retrieve an artifact using the login credentials (login and password) or can retrieve anonymously if the user has the rights to do so. Output of this action will be one AE variable consisting retrieved archive file path.
+Case 1 : If artifact has many files along with jar file
+If both 'Packing Type' and 'Extension' are empty then by default it will retrieve the jar artifact.
+If user provides both the inputs , 'Packing Type' and 'Extension' then the priority goes to 'Extension'.
+Case 2 : If artifact has many files except jar file
+If both 'Packing Type' and 'Extension' are empty then it will give an error '404 jar not found'.
+If user provides both the inputs , 'Packing Type' and 'Extension' then the priority goes to 'Extension'
 = Inputs =
 * Nexus URL : Specify URL of your Nexus repository. Example http://127.0.0.1:8081/nexus/
 * Username : Specify your Nexus repository username. 
@@ -351,13 +357,7 @@ This action is used to retrieve an artifact from Nexus repository using GAV para
 * Folder to save in : Destination folder to save the artifact.If not specified, default temporary folder of the agent is used.
 * Overwrite Agent : Overwrites the default agent
 * Overwrite Login : Overwrites the default login
-= Behavior =
-Case 1 : If artifact has many files along with jar file
-If both 'Packing Type' and 'Extension' are empty then by default it will retrieve the jar artifact.
-If user provides both the inputs , 'Packing Type' and 'Extension' then the priority goes to 'Extension'.
-Case 2 : If artifact has many files except jar file
-If both 'Packing Type' and 'Extension' are empty then it will give an error '404 jar not found'.
-If user provides both the inputs , 'Packing Type' and 'Extension' then the priority goes to 'Extension'
+= Behaviour =
 =Return Value=
 (none)
 = Outputs =
