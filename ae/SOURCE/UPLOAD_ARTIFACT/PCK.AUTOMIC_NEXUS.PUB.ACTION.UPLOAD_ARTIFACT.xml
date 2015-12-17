@@ -330,7 +330,7 @@
 PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT
 
 = General description =
-This action is used to upload the artifact to Nexus repository using GAV parameters i.e group, artifact, version paramters. A user can upload the artifact using the login credentials (login and password) or can upload anonymously if the user has the rights to upload. It is an asynchronous operation, user needs to cross check if the artiact has been uploaded.
+This action is used to upload the artifact to Nexus repository using GAV parameters i.e group, artifact, version paramters. A user can upload the artifact using the login credentials (login and password) or can upload anonymously if the user has the rights to upload. It is an asynchronous operation, user needs to cross check if the artifact has been uploaded.
 
 = Inputs =
 * Nexus URL		: Specify URL of your Nexus repository REST API. Example http://127.0.0.1:8081/nexus/
