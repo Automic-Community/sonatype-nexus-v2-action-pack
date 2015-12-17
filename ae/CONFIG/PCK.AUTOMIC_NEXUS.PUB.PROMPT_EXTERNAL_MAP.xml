@@ -26,11 +26,11 @@
 <Variables>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/UC4RB_NXS_ARCHIVE_TYPE#" Value="EXT:/nexus/artifact/archive_type" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/UC4RB_NXS_ARCHIVE_TYPE#" Value="EXT:/nexus/retrieveartifact/archive_type" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/UC4RB_NXS_ARTIFACT_ID#" Value="EXT:/nexus/artifact/artifact_id" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/UC4RB_NXS_CLASSIFIER#" Value="EXT:/nexus/artifact/classifier" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/UC4RB_NXS_EXTENSION#" Value="EXT:/nexus/artifact/extension" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/UC4RB_NXS_FOLDER_PATH#" Value="EXT:/nexus/artifact/folderpath" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/UC4RB_NXS_FOLDER_PATH#" Value="EXT:/nexus/retrieveartifact/folderpath" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/UC4RB_NXS_GROUP_ID#" Value="EXT:/nexus/artifact/group_id" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/UC4RB_NXS_NEXUS_URL#" Value="EXT:/nexus/endpoint/nexus_url" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT/UC4RB_NXS_PACKAGING#" Value="EXT:/nexus/artifact/packaging" Value1="" Value2="" Value3="" Value4=""/>
@@ -43,7 +43,7 @@
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT/UC4RB_NXS_ARTIFACT_ID#" Value="EXT:/nexus/artifact/artifact_id" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT/UC4RB_NXS_CLASSIFIER#" Value="EXT:/nexus/artifact/classifier" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT/UC4RB_NXS_EXTENSION#" Value="EXT:/nexus/artifact/extension" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT/UC4RB_NXS_FILE_PATH#" Value="EXT:/nexus/artifact/filepath" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT/UC4RB_NXS_FILE_PATH#" Value="EXT:/nexus/uploadartifact/filepath" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT/UC4RB_NXS_GROUP_ID#" Value="EXT:/nexus/artifact/group_id" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT/UC4RB_NXS_NEXUS_URL#" Value="EXT:/nexus/endpoint/nexus_url" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT/UC4RB_NXS_PACKAGING#" Value="EXT:/nexus/artifact/packaging" Value1="" Value2="" Value3="" Value4=""/>
