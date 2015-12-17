@@ -77,7 +77,7 @@ public class UploadArtifactAction extends AbstractHttpAction {
                 throw new AutomicException( "At least Package or Extension should be provided ");
             }
         } catch (AutomicException e) {
-            LOGGER.error(e);
+            LOGGER.error(e.getMessage());
             throw e;
         }
     }

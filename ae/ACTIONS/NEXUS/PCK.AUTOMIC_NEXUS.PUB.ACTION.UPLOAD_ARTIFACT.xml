@@ -330,12 +330,12 @@
 PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT
 
 = General description =
-This action is used to upload the artifact to Nexus repository using GAV parameters i.e group, artifact, version paramters. A user can upload the artifact using the login credentials (login and password) or can upload anonymously if the user has the rights to upload. It is an asynchronous operation, user needs to cross check if the artifact has been uploaded.
+This action is used to upload the artifact to Nexus repository using GAV parameters i.e group, artifact, version paramters. A user can upload the artifact using the login credentials (login and password) or can upload anonymously if the user has the rights to upload. As this is an asynchronous operation, user needs to cross check if the artifact has been uploaded. The deployment of an artifact depends on the rights that has been permitted to the user for the Nexus repository. If the access setting for the repository is set to "disable redeploy", then user cannot deploy the same artifact again. If the access setting is set to "read-only", then the user cannot upload any artifact to the repository.
 
 = Inputs =
-* Nexus URL		: Specify URL of your Nexus repository REST API. Example http://127.0.0.1:8081/nexus/
-* Username 		: Specify your Nexus repository REST API Username. 
-* Password 		: Specify your Nexus repository Rest API password.
+* Nexus URL		: Specify URL of your Nexus repository. Example http://127.0.0.1:8081/nexus/
+* Username 		: Specify your Nexus repository username. 
+* Password 		: Specify your Nexus repository password.
 * Group ID 		: Specify Group ID of the artifact. E.g. com.sun.jersey
 * Artifact ID		: Specify Artifact ID. E.g. jersey-client
 * Version		: Specify artifact version. E.g. 1.13
@@ -348,8 +348,6 @@ This action is used to upload the artifact to Nexus repository using GAV paramet
 * Overwrite Login	: Overwrites the default login
 
 = Behavior =
-* If the access setting for the repository is set to "disable redeploy", then user cannot deploy the same artifact again.
-* If the access setting for the repository is set to "read-only", then user cannot deploy any artifact in nexus artifactory.
 * If the user wants to upload an artifact for the first time (i.e. a new component is being created), user necessarily needs to give the "Packaging type" in the input.
 * If the user wants to upload an artifact to some already existing component, then user needs to give either the "Packaging type" or "Extension".
 
