@@ -25,8 +25,20 @@
 			<Property name="extension" displayName="Artifact Extension" mode="EDITABLE" type="SingleLineText">
 				<Description>Specify extension of the artifact. E.g. jar</Description>
 			</Property>
+		</Group>
+		<Group name="UploadArtifact" displayName="Upload Artifact">
 			<Property name="filepath" displayName="Artifact to Upload" mode="MANDATORY" type="SingleLineText">
 				<Description>Artifact location path with full name. E.g. C:\jersey-client-1.13.jar</Description>
+			</Property>
+		</Group>
+		<Group name="RetrieveArtifact" displayName="Retrieve Artifact">
+			<Property name="archive_type" displayName="Archive Type" mode="EDITABLE" type="SingleChoice">
+				<Defaultvalue>TAR</Defaultvalue>
+				<List>TAR#;#ZIP#;#TAR.GZ#;#TGZ</List>
+				<Description>Select file type to save.</Description>
+			</Property>	
+			<Property name="folderpath" displayName="Folder to save in" mode="EDITABLE" type="SingleLineText">
+				<Description>Destination folder to save the artifact. If not specified, default temporary folder of the agent is used. E.g. E:\nexus\artifact</Description>
 			</Property>
 		</Group>
 	</Properties>
@@ -71,9 +83,18 @@
 			<Value>{/custom/extension}</Value>
 			<Description>Specify extension of the artifact. E.g. jar</Description>
 		</Property>
-		<Property name="/nexus/artifact/filepath" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+		<Property name="/nexus/uploadartifact/filepath" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
 			<Value>{/custom/filepath}</Value>
 			<Description>Artifact location path with full name. E.g. C:\jersey-client-1.13.jar</Description>
 		</Property>
+		<Property name="/nexus/retrieveartifact/folderpath" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{/custom/folderpath}</Value>
+			<Description>Destination folder to save the artifact. If not specified, default temporary folder of the agent is used. E.g. E:\nexus\artifact</Description>
+		</Property>
+		<Property name="/nexus/retrieveartifact/archive_type" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+			<Value>{/custom/archive_type}</Value>
+			<Description>Select file type to save.</Description>
+		</Property>
+		
 	</DynamicProperties>
 </ComponentType>

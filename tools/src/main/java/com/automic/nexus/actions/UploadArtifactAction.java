@@ -14,7 +14,6 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
-
 /**
  * This action is used to upload an artifact to Nexus repository with the given GAV parameters.
  * 
