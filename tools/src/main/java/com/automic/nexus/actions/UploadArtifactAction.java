@@ -73,7 +73,7 @@ public class UploadArtifactAction extends AbstractHttpAction {
             extension = getOptionValue("extension");
 
             if (!CommonUtil.checkNotEmpty(packaging) && !CommonUtil.checkNotEmpty(extension)) {
-                throw new AutomicException( "At least Package or Extension should be provided ");
+                throw new AutomicException( "At least Packaging Type or Artifact Extension should be provided");
             }
         } catch (AutomicException e) {
             LOGGER.error(e.getMessage());
