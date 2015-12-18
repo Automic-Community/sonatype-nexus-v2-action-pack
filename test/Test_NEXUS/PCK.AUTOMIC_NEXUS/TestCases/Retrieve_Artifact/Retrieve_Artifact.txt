@@ -46,7 +46,7 @@ Assert Repository as a mandatory field
                       OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}    ${Valid_Artifact_Id}    ${Valid_Version}    ${EMPTY}                 ${EMPTY}         ${EMPTY}              ${EMPTY}             ${EMPTY}        TAR
 
 Assert Archive Type as a mandatory field
-                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}    ${Valid_Artifact_Id}    ${Valid_Version}    ${Valid_Repository}      ${EMPTY}         ${EMPTY}              ${EMPTY}             ${EMPTY}        TAR
+                      OTHER     ${URL_Nexus}            ${UserName_Nexus}    ${Password_Nexus}    ${Valid_Group_Id}    ${Valid_Artifact_Id}    ${Valid_Version}    ${Valid_Repository}      ${EMPTY}         ${EMPTY}              ${EMPTY}             ${EMPTY}        ${EMPTY}
 
 *** Keywords ***
 Startup
@@ -77,7 +77,7 @@ Retrieve Artifact Template
     Artifact Info    ${Group_Id}    ${Artifact_Id}    ${Version}    ${Repository}    ${Packaging_Type}    ${Artifact_Classifier}
     ...    ${Artifact_Extension}
     Action Set    &UC4RB_NXS_FOLDER_PATH#    ${Folder_To_Save}
-    Action Set    &UC4RB_NXS_ARCHIVE_TYPE ${Archive_Type}
+    Action Set    &UC4RB_NXS_ARCHIVE_TYPE#    ${Archive_Type}
     Set Overwrite Agent
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure    ELSE
