@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
 <JOBI name="PCK.AUTOMIC_NEXUS.PUB.INCLUDE.ATTACH_RESOURCE">
 <HEADER state="1">
-<Title>attach the nexus jar to current agent</Title>
+<Title>Attach the nexus jar to current agent</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <OH_SubType/>
