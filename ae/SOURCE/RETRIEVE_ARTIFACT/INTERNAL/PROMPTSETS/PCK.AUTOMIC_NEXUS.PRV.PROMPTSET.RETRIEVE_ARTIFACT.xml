@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
 <PRPT name="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">
 <HEADER state="1">
-<Title>Retrieve artifact from repository</Title>
+<Title>Retrieve artifact from Nexus repository</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <OH_SubType/>
@@ -10,7 +10,7 @@
 <DESIGNER/>
 </PROMPTDESIGNER>
 <PROMPTSETXUI state="1">
-<XUIEDITOR><![CDATA[<dialog height="424" icon="PRPT" id="PRPTS" left="0" top="0" width="441"><readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="Retrieve artifact from repository"><properties><entry name="text">Retrieve artifact from repository</entry><entry name="modifiable">0</entry></properties><combo alt="1" dynamic="0" enabled="1" fill="b" filter="0" focus="0" id="UC4RB_NXS_ARCHIVE_TYPEs.00" nl="1" strict="1" text="Archive Type" tooltip="Select file type to save." vtype="i"><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command owner="_self" owneraction="setsource" ownerparam="src|_dialog@src"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptcombolist" target="_self" targetaction="setlist" wait="0"/>
+<XUIEDITOR><![CDATA[<dialog height="424" icon="PRPT" id="PRPTS" left="0" top="0" width="441"><readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="Retrieve artifact from Nexus repository"><properties><entry name="text">Retrieve artifact from Nexus repository</entry><entry name="modifiable">0</entry></properties><combo alt="1" dynamic="0" enabled="1" fill="b" filter="0" focus="0" id="UC4RB_NXS_ARCHIVE_TYPEs.00" nl="1" strict="1" text="Archive Type" tooltip="Select file type to save." vtype="i"><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command owner="_self" owneraction="setsource" ownerparam="src|_dialog@src"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptcombolist" target="_self" targetaction="setlist" wait="0"/>
          
          
          
