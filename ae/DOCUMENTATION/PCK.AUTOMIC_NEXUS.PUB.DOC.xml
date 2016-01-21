@@ -48,7 +48,25 @@ Following actions are supported for Nexus.
 This action is used to upload the artifact to Nexus repository using GAV parameters i.e group, artifact, version paramters. A user can upload the artifact using the login credentials (login and password) or can upload anonymously if the user has the rights to upload. As this is an asynchronous operation, user needs to cross check if the artifact has been uploaded. The deployment of an artifact depends on the rights that has been permitted to the user for the Nexus repository. If the access setting for the repository is set to "disable redeploy", then user cannot deploy the same artifact again. If the access setting is set to "read-only", then the user cannot upload any artifact to the repository.
 
 * Action Name: PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT
-This action is used to retrieve an artifact from Nexus repository using GAV parameters i.e group, artifact, version parameters.]]></DOC>
+This action is used to retrieve an artifact from Nexus repository using GAV parameters i.e group, artifact, version parameters.
+
+=INCLUDES=
+* PCK.AUTOMIC_NEXUS.PUB.INCLUDE.ATTACH_RESOURCE									
+   Attaches the nexus jar to current agent
+* PCK.AUTOMIC_NEXUS.PUB.INCLUDE.BUILD_ACTION_SPECIFIC_JAVA_ARGUMENTS				
+   Build action specific java arguments	
+* PCK.AUTOMIC_NEXUS.PUB.INCLUDE.BUILD_JAVA_ARGUMENTS								
+   Build java arguments	
+* PCK.AUTOMIC_NEXUS.PUB.INCLUDE.CHECK_JOBSTATUS									
+   Check the job status and logging	
+* PCK.AUTOMIC_NEXUS.PUB.INCLUDE.ECHO_ON_OFF										
+   Echo enable/disable swtich statement	
+* PCK.AUTOMIC_NEXUS.PUB.INCLUDE.ESCAPE_ARG_VALUE									
+   Escape argument values	
+* PCK.AUTOMIC_NEXUS.PUB.INCLUDE.LOAD_PCK_PARAMETERS								
+   Load the package parameters from VARA object	
+* PCK.AUTOMIC_NEXUS.PUB.INCLUDE.SET_EXEC_ENVIRONMENT								
+   Set the execution environment	]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
