@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-15"?>
-<uc-export clientvers="11.0.0-sprint.20141111.1610+build.2828">
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
 <JOBI name="PCK.AUTOMIC_NEXUS.PUB.INCLUDE.ECHO_ON_OFF">
 <HEADER state="1">
 <Title>Echo enable/disable swtich statement</Title>
@@ -15,7 +14,7 @@
 :ENDSWITCH]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[This include is used for echo ON or OFF ]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>

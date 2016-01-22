@@ -14,7 +14,7 @@
 :INC PCK.AUTOMIC_NEXUS.PUB.INCLUDE.ATTACH_RESOURCE]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[This include is used to prepare the execution environment for the nexus action.It changes the current directory to agents bin directory and where it attaches the nexus jar to the current environment.This environment setting is used to run the java command for the action.]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>

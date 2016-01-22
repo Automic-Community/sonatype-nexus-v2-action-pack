@@ -21,7 +21,7 @@
 : ENDWHILE]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[This include is used to add action specific arguments to the string that is passed to the java command while caling the nexus jar.]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>

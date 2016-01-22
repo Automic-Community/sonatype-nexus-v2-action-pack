@@ -52,21 +52,34 @@ This action is used to retrieve an artifact from Nexus repository using GAV para
 
 =INCLUDES=
 * PCK.AUTOMIC_NEXUS.PUB.INCLUDE.ATTACH_RESOURCE									
-   Attaches the nexus jar to current agent
+   Attach the nexus jar to current agent.It can be used for both Windows and Unix environment.
+   
 * PCK.AUTOMIC_NEXUS.PUB.INCLUDE.BUILD_ACTION_SPECIFIC_JAVA_ARGUMENTS				
-   Build action specific java arguments	
+  This include is used to add action specific arguments to the string that is passed to the java command while caling the nexus jar.It can be used for both Windows and Unix environment.
+  
 * PCK.AUTOMIC_NEXUS.PUB.INCLUDE.BUILD_JAVA_ARGUMENTS								
-   Build java arguments	
+  This include is used add arguments which are common for all actions.This along with action specific arguments are passed to the java command while calling the nexus jar.It can be used for both    Windows and Unix environment.
+  
 * PCK.AUTOMIC_NEXUS.PUB.INCLUDE.CHECK_JOBSTATUS									
-   Check the job status and logging	
+  It calculates and publish the job status based on some known parameters. It considers the following things into account.
+	* Any OS command failed or not. (E.g. ERRORLEVEL OS variable)
+	* Job explicitly sets error code into known variable.  
+	* AE Script processing error. (E.g. Validation errors)
+	It considers any non zero value as error scenario.Further based on job status, it logs the success or failure message into Job report.
+	This include can be only used in Job's Process tab.It can be used for both Windows and Unix environment.
+  
 * PCK.AUTOMIC_NEXUS.PUB.INCLUDE.ECHO_ON_OFF										
-   Echo enable/disable swtich statement	
+ This include is used for echo ON or OFF 
+  
 * PCK.AUTOMIC_NEXUS.PUB.INCLUDE.ESCAPE_ARG_VALUE									
-   Escape argument values	
+  It escapes the Nexus input parameters and wrap the parameter surrounded by quotes(").It can be used for both Windows and Unix environment.
+	
 * PCK.AUTOMIC_NEXUS.PUB.INCLUDE.LOAD_PCK_PARAMETERS								
-   Load the package parameters from VARA object	
+  Load the package parameters from VARA object.It can be used for both Windows and Unix environment.
+  
 * PCK.AUTOMIC_NEXUS.PUB.INCLUDE.SET_EXEC_ENVIRONMENT								
-   Set the execution environment	]]></DOC>
+  It sets general environmental variable(s) which can be further used in Jobs. It also changes the agent current directory to bin.
+  This Include object can be used for both Windows and Unix environment as per the Agent]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
