@@ -21,9 +21,9 @@
 <IntAccount/>
 <AutoDeactNo>0</AutoDeactNo>
 <AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
-<AutoDeactErrorFree>0</AutoDeactErrorFree>
-<DeactWhen/>
-<AutoDeactAlways>1</AutoDeactAlways>
+<AutoDeactErrorFree>1</AutoDeactErrorFree>
+<DeactWhen>ANY_OK</DeactWhen>
+<AutoDeactAlways>0</AutoDeactAlways>
 <DeactDelay>0</DeactDelay>
 <ActAtRun>1</ActAtRun>
 <UC4Priority>0</UC4Priority>
@@ -84,8 +84,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
-<LOGINs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -161,8 +161,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
-<LOGINs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -224,8 +224,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
-<LOGINs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -301,7 +301,10 @@
 </node>
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PRPTS" type="PROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" ontop="1">
-<PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" prptmode="1"/>
+<PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" prptmode="1">
+<AGENTs.00 altview="1" haslist="0">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 altview="1" haslist="0">&amp;LOGIN#</LOGINs.00>
+</PRPTBOX>
 </PROMPTSET>
 </node>
 </dyntree>
@@ -330,7 +333,7 @@
 PCK.AUTOMIC_NEXUS.PUB.ACTION.UPLOAD_ARTIFACT
 
 = General description =
-This action is used to upload the artifact to Nexus repository using GAV parameters i.e group, artifact, version paramters. A user can upload the artifact using the login credentials (login and password) or can upload anonymously if the user has the rights to upload. As this is an asynchronous operation, user needs to cross check if the artifact has been uploaded. The deployment of an artifact depends on the rights that has been permitted to the user for the Nexus repository. If the access setting for the repository is set to "disable redeploy", then user cannot deploy the same artifact again. If the access setting is set to "read-only", then the user cannot upload any artifact to the repository.
+This action is used to upload the artifact to Nexus repository using GAV parameters i.e group, artifact, version parameters. A user can upload the artifact using the login credentials (login and password) or can upload anonymously if the user has the rights to upload. As this is an asynchronous operation, user needs to cross check if the artifact has been uploaded. The deployment of an artifact depends on the rights that has been permitted to the user for the Nexus repository. If the access setting for the repository is set to "disable redeploy", then user cannot deploy the same artifact again. If the access setting is set to "read-only", then the user cannot upload any artifact to the repository.
 
 = Inputs =
 * Nexus URL		: Specify URL of your Nexus repository. Example http://127.0.0.1:8081/nexus/
@@ -347,7 +350,7 @@ This action is used to upload the artifact to Nexus repository using GAV paramet
 * Overwrite Agent	: Overwrites the default agent
 * Overwrite Login	: Overwrites the default login
 
-= Behavior =
+= Behaviour =
 * If the user wants to upload an artifact for the first time (i.e. a new component is being created), user necessarily needs to give the "Packaging type" in the input.
 * If the user wants to upload an artifact to some already existing component, then user needs to give either the "Packaging type" or "Extension".
 
@@ -367,7 +370,8 @@ AE logs will be displayed in the AE report.
 Java logs will be created at \temp\nexus.log under agent installation directory.
 
 = Example =
-(none)]]></DOC>
+(none)
+]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
