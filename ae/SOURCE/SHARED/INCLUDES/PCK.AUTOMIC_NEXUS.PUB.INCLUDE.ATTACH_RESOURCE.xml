@@ -13,7 +13,8 @@
 :SET &UC4RB_NXS_PATH_JAR#= STR_CAT(&$AGENT_RESOURCES_CLIENT#,"nexustool.jar")]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[This includes attaches the nexus jar to current agent
+It can be used for both Windows and Unix environment]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>

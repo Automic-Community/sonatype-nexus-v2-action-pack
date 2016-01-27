@@ -21,9 +21,9 @@
 <IntAccount/>
 <AutoDeactNo>0</AutoDeactNo>
 <AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
-<AutoDeactErrorFree>0</AutoDeactErrorFree>
-<DeactWhen/>
-<AutoDeactAlways>1</AutoDeactAlways>
+<AutoDeactErrorFree>1</AutoDeactErrorFree>
+<DeactWhen>ANY_OK</DeactWhen>
+<AutoDeactAlways>0</AutoDeactAlways>
 <DeactDelay>0</DeactDelay>
 <ActAtRun>1</ActAtRun>
 <UC4Priority>0</UC4Priority>
@@ -85,8 +85,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
-<LOGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -163,8 +163,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
-<LOGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -227,8 +227,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
-<LOGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -305,8 +305,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PRPTS" type="PROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" ontop="1">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" prptmode="1">
-<AGENTs.00 altview="0" haslist="0"/>
-<LOGINs.00 altview="0" haslist="0"/>
+<AGENTs.00 altview="1" haslist="0">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 altview="1" haslist="0">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -334,41 +334,51 @@
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[= Action name =
 PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT
+
 = General description =
 This action is used to retrieve an artifact from Nexus repository using GAV parameters i.e group, artifact, version parameters. A user can retrieve an artifact using the login credentials (login and password) or can retrieve anonymously if the user has the rights to do so. Output of this action will be one AE variable consisting retrieved archive file path.
+
 Case 1 : If artifact has many files along with jar file
 If both 'Packing Type' and 'Extension' are empty then by default it will retrieve the jar artifact.
 If user provides both the inputs , 'Packing Type' and 'Extension' then the priority goes to 'Extension'.
+
 Case 2 : If artifact has many files except jar file
 If both 'Packing Type' and 'Extension' are empty then it will give an error '404 jar not found'.
 If user provides both the inputs , 'Packing Type' and 'Extension' then the priority goes to 'Extension'
+
 = Inputs =
-* Nexus URL : Specify URL of your Nexus repository. Example http://127.0.0.1:8081/nexus/
-* Username : Specify your Nexus repository username. 
-* Password : Specify your Nexus repository password.
-* Group ID : Specify Group ID of the artifact. E.g. com.sun.jersey
-* Artifact ID : Specify Artifact ID. E.g. jersey-client
-* Version : Specify artifact version. E.g. 1.13
-* Repository : Specify repository in which you want to upload artifact. E.g. myrepo
-* Packaging Type : Specify packaging type of the artifact. E.g. jar
-* Artifact Classifier : Specify classifier of the artifact. E.g. sources
-* Artifact Extension : Specify extension of the artifact. E.g. jar
-* Archive Type : Select file type to save. E.g ZIP
-* Folder to save in : Destination folder to save the artifact.If not specified, default temporary folder of the agent is used.
-* Overwrite Agent : Overwrites the default agent
-* Overwrite Login : Overwrites the default login
+* Nexus URL 		: Specify URL of your Nexus repository. Example http://127.0.0.1:8081/nexus/
+* Username 		: Specify your Nexus repository username. 
+* Password 		: Specify your Nexus repository password.
+* Group ID 		: Specify Group ID of the artifact. E.g. com.sun.jersey
+* Artifact ID 		: Specify Artifact ID. E.g. jersey-client
+* Version 		: Specify artifact version. E.g. 1.13
+* Repository 		: Specify repository in which you want to upload artifact. E.g. myrepo
+* Packaging Type 	: Specify packaging type of the artifact. E.g. jar
+* Artifact Classifier 	: Specify classifier of the artifact. E.g. sources
+* Artifact Extension 	: Specify extension of the artifact. E.g. jar
+* Archive Type 		: Select file type to save. E.g ZIP
+* Folder to save in 	: Destination folder to save the artifact.If not specified, default temporary folder of the agent is used.
+* Overwrite Agent 	: Overwrites the default agent
+* Overwrite Login 	: Overwrites the default login
+
 = Behaviour =
+
 =Return Value=
-(none)
+Variable UC4RB_NXS_ARCHIVE_PATH# is published which will have retrieved artifact path
+
 = Outputs =
 * Return code is 0 in case of success.
 * Return code is 1 in case of failure.
 * Return code is 2 in case of connection timed out !!
+
 = Rollback =
 (none)
+
 = Logging =
 AE logs will be displayed in the AE report.
 Java logs will be created at \temp\nexus.log under agent installation directory.
+
 = Example =
 (none)]]></DOC>
 </DOCU_Docu>

@@ -12,7 +12,8 @@
 :SET &UC4RB_NXS_READ_TIMEOUT# = GET_VAR(&VARA_OBJ_CONFIG#, "READ_TIMEOUT")]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[This include is used to load two paramaters manily connection time out and read time out form the VARA PCK.AUTOMIC_NEXUS.PRV.VARA.PACKAGE_PARAMETERS and set the values into two paramters UC4RB_NXS_CONNECTION_TIMEOUT and UC4RB_NXS_READ_TIMEOUT
+It can be used for both Windows and Unix environment]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>
