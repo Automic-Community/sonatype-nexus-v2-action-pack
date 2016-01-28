@@ -52,8 +52,9 @@ public final class ExceptionHandler {
                 responseCode = RESPONSE_CONNECT_TIMEOUT;
             }
         }
-        if(!errorMsg.isEmpty()) {
-            ConsoleWriter.writeln(CommonUtil.formatErrorMessage((errorMsg == null) ? "System Error Occured" : errorMsg));
+        if (!errorMsg.isEmpty()) {
+            ConsoleWriter
+                    .writeln(CommonUtil.formatErrorMessage((errorMsg == null) ? "System Error Occured" : errorMsg));
         }
         ConsoleWriter.writeln(CommonUtil.formatErrorMessage(ERRORMSG));
         return responseCode;
