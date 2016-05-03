@@ -21,6 +21,8 @@ public final class HttpClientConfig {
 
         ClientConfig config = new DefaultClientConfig();
 
+        config.getClasses().add(com.sun.jersey.multipart.impl.MultiPartWriter.class);
+
         config.getProperties().put(ClientConfig.PROPERTY_CONNECT_TIMEOUT, connectionTimeOut);
         config.getProperties().put(ClientConfig.PROPERTY_READ_TIMEOUT, readTimeOut);
         config.getProperties().put(ClientConfig.PROPERTY_FOLLOW_REDIRECTS, true);

@@ -10,5 +10,5 @@ binaries:
     resources: 
       - name: NEXUSTOOL
         type: BINARY
-        path: tools/target/nexustool.jar
+        path: tools/target/nexus-tool.jar
         version: 1.0.0
