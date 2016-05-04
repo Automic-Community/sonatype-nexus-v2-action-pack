@@ -6,6 +6,10 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.text.ParseException;
+
+import javax.ws.rs.core.MultivaluedMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,6 +21,7 @@ import com.automic.nexus.util.ConsoleWriter;
 import com.automic.nexus.util.validator.NexusValidator;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.core.header.ContentDisposition;
 
 /**
  * This action is used to retrieve an artifact from Nexus repository with the given parameters.
@@ -52,7 +57,7 @@ public class RetrieveArtifactAction extends AbstractHttpAction {
         try {
             archiveFilePath = getOptionValue("archivefilepath");
             NexusValidator.checkNotEmpty(archiveFilePath, "Folder to save in");
-            NexusValidator.checkFileDirectoryExists(new File(archiveFilePath), "Folder to save in");
+            NexusValidator.checkDirectoryExists(new File(archiveFilePath), "Folder to save in");
 
             groupID = getOptionValue("groupid");
             NexusValidator.checkNotEmpty(groupID, "Group ID");
@@ -105,15 +110,24 @@ public class RetrieveArtifactAction extends AbstractHttpAction {
 
     private void prepareOutput(ClientResponse response) throws AutomicException {
         Path storedLocation = null;
+        MultivaluedMap<String, String> headers = response.getHeaders();
+        ContentDisposition cd = null;
+        try {
+            cd = new ContentDisposition(headers.get("Content-Disposition").get(0));
+        } catch (ParseException e) {
+            LOGGER.error(ExceptionConstants.FILENAME_ERROR, e);
+            throw new AutomicException(ExceptionConstants.FILENAME_ERROR);
+        }
+
         try (InputStream is = response.getEntityInputStream()) {
-            storedLocation = Paths.get(archiveFilePath.toString());
-            Files.copy(is, storedLocation);
+            archiveFilePath = archiveFilePath + cd.getFileName();
+            storedLocation = Paths.get(archiveFilePath);
+            Files.copy(is, storedLocation, StandardCopyOption.REPLACE_EXISTING);
             ConsoleWriter.writeln("UC4RB_NXS_ARCHIVE_PATH ::=" + storedLocation);
         } catch (IOException e) {
             LOGGER.error("Error while creating archive file from input stream ", e);
             throw new AutomicException(String.format(ExceptionConstants.UNABLE_TO_WRITEFILE, storedLocation));
         }
-
     }
 
     /**
