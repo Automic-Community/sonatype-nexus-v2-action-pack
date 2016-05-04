@@ -23,14 +23,6 @@ public final class NexusValidator {
         }
     }
 
-    public static void checkFileDirectoryExists(File filePath, String parameterName) throws AutomicException {
-        File parent = filePath.getParentFile();
-        if (!(parent != null && parent.exists() && !parent.isFile())) {
-            String msg = String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName, parent);
-            throw new AutomicException(msg);
-        }
-    }
-
     public static void checkFileExists(File file, String parameterName) throws AutomicException {
         if (!(file.exists() && file.isFile())) {
             throw new AutomicException(String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName, file));
@@ -41,6 +33,13 @@ public final class NexusValidator {
         if (value < lessThan) {
             String errMsg = String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName, value);
             throw new AutomicException(errMsg);
+        }
+    }
+
+    public static void checkDirectoryExists(File filePath, String parameterName) throws AutomicException {
+        if (!(filePath.exists() && !filePath.isFile())) {
+            throw new AutomicException(String.format(ExceptionConstants.INVALID_INPUT_PARAMETER, parameterName,
+                    filePath));
         }
     }
 
