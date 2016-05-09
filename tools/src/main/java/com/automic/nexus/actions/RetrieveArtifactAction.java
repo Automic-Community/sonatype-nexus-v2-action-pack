@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.ParseException;
+import java.util.List;
 
 import javax.ws.rs.core.MultivaluedMap;
 
@@ -109,19 +110,23 @@ public class RetrieveArtifactAction extends AbstractHttpAction {
     }
 
     private void prepareOutput(ClientResponse response) throws AutomicException {
-        Path storedLocation = null;
         MultivaluedMap<String, String> headers = response.getHeaders();
-        ContentDisposition cd = null;
-        try {
-            cd = new ContentDisposition(headers.get("Content-Disposition").get(0));
-        } catch (ParseException e) {
-            LOGGER.error(ExceptionConstants.FILENAME_ERROR, e);
-            throw new AutomicException(ExceptionConstants.FILENAME_ERROR);
+        List<String> lst = headers.get("Content-Disposition");
+        String fileName = null;
+        if (lst != null && !lst.isEmpty()) {
+            try {
+                fileName = new ContentDisposition(lst.get(0)).getFileName();
+            } catch (ParseException e) {
+                LOGGER.error(ExceptionConstants.FILENAME_ERROR, e);
+                throw new AutomicException(ExceptionConstants.FILENAME_ERROR);
+            }
         }
 
+        if (!CommonUtil.checkNotEmpty(fileName)) {
+            throw new AutomicException(ExceptionConstants.FILENAME_ERROR);
+        }
+        Path storedLocation = Paths.get(archiveFilePath, fileName);
         try (InputStream is = response.getEntityInputStream()) {
-            archiveFilePath = archiveFilePath + cd.getFileName();
-            storedLocation = Paths.get(archiveFilePath);
             Files.copy(is, storedLocation, StandardCopyOption.REPLACE_EXISTING);
             ConsoleWriter.writeln("UC4RB_NXS_ARCHIVE_PATH ::=" + storedLocation);
         } catch (IOException e) {

@@ -24,7 +24,7 @@ public final class ExceptionConstants {
     // Certificate errors
     public static final String INVALID_KEYSTORE = "Invalid KeyStore.";
     public static final String SSLCONTEXT_ERROR = "Unable to build secured context.";
-    public static final String FILENAME_ERROR = "Error while getting file name.";
+    public static final String FILENAME_ERROR = "File name not found in response.";
 
     private ExceptionConstants() {
     }
