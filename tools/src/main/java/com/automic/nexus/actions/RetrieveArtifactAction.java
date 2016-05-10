@@ -128,7 +128,7 @@ public class RetrieveArtifactAction extends AbstractHttpAction {
         Path storedLocation = Paths.get(archiveFilePath, fileName);
         try (InputStream is = response.getEntityInputStream()) {
             Files.copy(is, storedLocation, StandardCopyOption.REPLACE_EXISTING);
-            ConsoleWriter.writeln("UC4RB_NXS_ARCHIVE_PATH ::=" + storedLocation);
+            ConsoleWriter.writeln("UC4RB_NXS_ARCHIVE_PATH ::=" + storedLocation.normalize());
         } catch (IOException e) {
             LOGGER.error("Error while creating archive file from input stream ", e);
             throw new AutomicException(String.format(ExceptionConstants.UNABLE_TO_WRITEFILE, storedLocation));
