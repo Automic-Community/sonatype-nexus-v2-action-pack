@@ -350,7 +350,7 @@ If user provides both the inputs , 'Packing Type' and 'Extension' then the prior
 * Group ID 		: Specify Group ID of the artifact. E.g. com.sun.jersey
 * Artifact ID 		: Specify Artifact ID. E.g. jersey-client
 * Version 		: Specify artifact version. E.g. 1.13
-* Repository 		: Specify repository in which you want to upload artifact. E.g. myrepo
+* Repository 		: Specify repository where artifact is located. E.g. myrepo
 * Packaging Type 	: Specify packaging type of the artifact. E.g. jar
 * Artifact Classifier 	: Specify classifier of the artifact. E.g. sources
 * Artifact Extension 	: Specify extension of the artifact. E.g. jar
