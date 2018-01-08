@@ -12,3 +12,10 @@ binaries:
         type: BINARY
         path: tools/target/nexus-tool.jar
         version: 1.0.0
+  - object: RESOURCES/PCK.AUTOMIC_NEXUS.PRV.CUSTOM_TYPES
+    timestamp: disabled
+    resources:
+      - name: ARTIFACTSOURCE#NEXUS
+        type: TEXT
+        path: ara/types/artifact/Artifact_Nexus_1.0.0.xml
+        version: 1.0.0
