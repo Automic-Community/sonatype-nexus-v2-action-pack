@@ -22,10 +22,10 @@
 <AutoDeactNo>0</AutoDeactNo>
 <AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
 <AutoDeactErrorFree>1</AutoDeactErrorFree>
-<DeactWhen/>
+<DeactWhen>ANY_OK</DeactWhen>
 <AutoDeactAlways>0</AutoDeactAlways>
 <DeactDelay>0</DeactDelay>
-<ActAtRun>0</ActAtRun>
+<ActAtRun>1</ActAtRun>
 <UC4Priority>0</UC4Priority>
 <PassPriority>0</PassPriority>
 <MaxParallel2>0</MaxParallel2>
@@ -87,7 +87,7 @@
 <node content="1" id="PVALUE" name="Parent Variables" parent="" type="TASKVALUE">
 <VALUE state="2">
 <Values>
-<row ERTUsage="0" Mod="0" Name="&amp;NEXUS_DOWNLOAD_FILE_URL#" Value=""/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_CHECKSUM_EXTENSION#" Value="EXT:@artifact/custom/artifact_checksum_extension"/>
 </Values>
 <Mode>0</Mode>
 </VALUE>
@@ -208,7 +208,7 @@
 <node content="1" id="VALUE" name="Variables" parent="" type="VALUE">
 <VALUE state="1">
 <Values>
-<row ERTUsage="0" Name="&amp;NEXUS_DOWNLOAD_FILE_URL#" Value=""/>
+<row ERTUsage="0" Name="&amp;UC4RB_CHECKSUM_EXTENSION#" Value="EXT:@artifact/custom/artifact_checksum_extension"/>
 </Values>
 <Mode>0</Mode>
 </VALUE>
@@ -232,7 +232,11 @@
 <FInclSubDirs>0</FInclSubDirs>
 </ROLLBACK>
 <SCRIPT mode="1" state="1">
-<MSCRI/>
+<MSCRI><![CDATA[:SET &MISSING_CHECKSUM_PATH# = STR_STARTS_WITH(&UC4RB_CHECKSUM_EXTENSION#, "EXT:")
+:IF &MISSING_CHECKSUM_PATH# = "Y"
+:  PRINT "There is no checksum extension defined in this artifact to download."
+:  STOP NOMSG, 50, "There is no checksum extension defined in this artifact to download."
+:ENDIF]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
