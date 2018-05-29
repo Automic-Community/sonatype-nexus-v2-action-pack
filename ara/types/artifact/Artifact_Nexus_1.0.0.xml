@@ -42,9 +42,6 @@
 			<Property name="artifact_extension" displayName="Artifact Extension" mode="EDITABLE" type="SingleLineText">
 			  <Description>Specify extension of the artifact.</Description>
 			</Property>
-			<Property name="artifact_checksum_extension" displayName="Artifact Checksum File Extension" mode="EDITABLE" type="SingleLineText">
-			  <Description>Specify extension of checksum file of the artifact.</Description>
-			</Property>
 			<Property name="archive_type" displayName="Archive Type" mode="EDITABLE" type="SingleChoice">
 			  <List>zip#;#tar#;#tar.gz</List>
 			</Property>
