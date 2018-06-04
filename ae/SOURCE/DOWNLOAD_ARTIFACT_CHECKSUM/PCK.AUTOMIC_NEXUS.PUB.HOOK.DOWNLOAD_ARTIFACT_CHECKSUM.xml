@@ -52,45 +52,7 @@
 <runtime MrtCancel="0" MrtDays="0" MrtErt="0" MrtExecute="0" MrtExecuteObj="" MrtFix="0" MrtMethodDate="0" MrtMethodErt="0" MrtMethodFix="0" MrtMethodNone="1" MrtOn="1" MrtTZ="" MrtTime="00:00" SrtErt="0" SrtFix="0" SrtMethodErt="0" SrtMethodFix="0" SrtMethodNone="1"/>
 <result ChkRExec="0" RElseHalt="0" RElseIgn="0" RElseJPAbend="0" RExecFlag="0" RExecute="" RRepMTimes="0" RRepOn="0" RRepWait="0" RWhen=""/>
 <dynvalues>
-<dyntree>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
-<UC4RB_NXS_BASE_URLs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_BASE_URL#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/nexus_url</UC4RB_NXS_BASE_URLs.00>
-<UC4RB_NXS_PASSWORDs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_PASSWORD#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/password</UC4RB_NXS_PASSWORDs.00>
-<UC4RB_NXS_USERNAMEs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_USERNAME#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/username</UC4RB_NXS_USERNAMEs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">
-<UC4RB_NXS_ARTIFACT_IDs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_ARTIFACT_ID#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/artifact_id</UC4RB_NXS_ARTIFACT_IDs.00>
-<UC4RB_NXS_CLASSIFIERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_CLASSIFIER#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION"/>
-<UC4RB_NXS_EXTENSIONs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_EXTENSION#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION"/>
-<UC4RB_NXS_GROUP_IDs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_GROUP_ID#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/group_id</UC4RB_NXS_GROUP_IDs.00>
-<UC4RB_NXS_PACKAGINGs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_PACKAGING#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION"/>
-<UC4RB_NXS_REPOSITORYs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_REPOSITORY#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/repository</UC4RB_NXS_REPOSITORYs.00>
-<UC4RB_NXS_VERSIONs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_VERSION#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/version</UC4RB_NXS_VERSIONs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" name="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">
-<UC4RB_NXS_FOLDER_PATHs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_FOLDER_PATH#" promptsetname="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">&amp;UC4RB_ARTIFACT_DIR#</UC4RB_NXS_FOLDER_PATHs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-</dyntree>
+<dyntree/>
 </dynvalues>
 <CIT/>
 <calendars CCTypeAll="0" CCTypeExt="0" CCTypeNone="0" CCTypeOne="1" CaleOn="0"/>
@@ -124,49 +86,22 @@
 </node>
 <node content="1" id="PVALUE" name="Parent Variables" parent="" type="TASKVALUE">
 <VALUE state="2">
-<Values/>
+<Values>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_ARTIFACT_ID#" Value="EXT:@artifact/custom/artifact_id"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_BASE_URL#" Value="EXT:@artifact_source/custom/nexus_url"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_FOLDER_PATH#" Value="&amp;UC4RB_ARTIFACT_DIR#"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_GROUP_ID#" Value="EXT:@artifact/custom/group_id"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_PASSWORD#" Value="EXT:@artifact_source/custom/password"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_REPOSITORY#" Value="EXT:@artifact/custom/repository"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_USERNAME#" Value="EXT:@artifact_source/custom/username"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_VARA_NAME#" Value="&amp;UC4RB_ARTIFACT_VARA_NAME#"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_VERSION#" Value="EXT:@artifact/custom/version"/>
+</Values>
 <Mode>0</Mode>
 </VALUE>
 </node>
 <node content="1" id="PRPTS" name="PromptSets" parent="" pref="1" type="PROMPTSET"/>
 <node content="0" id="PPRPTS" name="Parent PromptSets" parent="" type="PPROMPTSET"/>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
-<UC4RB_NXS_BASE_URLs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_BASE_URL#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/nexus_url</UC4RB_NXS_BASE_URLs.00>
-<UC4RB_NXS_PASSWORDs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_PASSWORD#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/password</UC4RB_NXS_PASSWORDs.00>
-<UC4RB_NXS_USERNAMEs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_USERNAME#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/username</UC4RB_NXS_USERNAMEs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">
-<UC4RB_NXS_ARTIFACT_IDs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_ARTIFACT_ID#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/artifact_id</UC4RB_NXS_ARTIFACT_IDs.00>
-<UC4RB_NXS_CLASSIFIERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_CLASSIFIER#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION"/>
-<UC4RB_NXS_EXTENSIONs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_EXTENSION#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION"/>
-<UC4RB_NXS_GROUP_IDs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_GROUP_ID#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/group_id</UC4RB_NXS_GROUP_IDs.00>
-<UC4RB_NXS_PACKAGINGs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_PACKAGING#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION"/>
-<UC4RB_NXS_REPOSITORYs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_REPOSITORY#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/repository</UC4RB_NXS_REPOSITORYs.00>
-<UC4RB_NXS_VERSIONs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_VERSION#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/version</UC4RB_NXS_VERSIONs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" name="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">
-<UC4RB_NXS_FOLDER_PATHs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_FOLDER_PATH#" promptsetname="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">&amp;UC4RB_ARTIFACT_DIR#</UC4RB_NXS_FOLDER_PATHs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
 </dyntree>
 </dynvalues>
 <CIT/>
@@ -192,45 +127,7 @@
 <runtime MrtCancel="0" MrtDays="0" MrtErt="0" MrtExecute="0" MrtExecuteObj="" MrtFix="0" MrtMethodDate="0" MrtMethodErt="0" MrtMethodFix="0" MrtMethodNone="1" MrtOn="1" MrtTZ="" MrtTime="00:00" SrtErt="0" SrtFix="0" SrtMethodErt="0" SrtMethodFix="0" SrtMethodNone="1"/>
 <result ChkRExec="0" RElseHalt="0" RElseIgn="0" RElseJPAbend="0" RExecFlag="0" RExecute="" RRepMTimes="0" RRepOn="0" RRepWait="0" RWhen=""/>
 <dynvalues>
-<dyntree>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
-<UC4RB_NXS_BASE_URLs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_BASE_URL#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/nexus_url</UC4RB_NXS_BASE_URLs.00>
-<UC4RB_NXS_PASSWORDs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_PASSWORD#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/password</UC4RB_NXS_PASSWORDs.00>
-<UC4RB_NXS_USERNAMEs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_USERNAME#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/username</UC4RB_NXS_USERNAMEs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">
-<UC4RB_NXS_ARTIFACT_IDs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_ARTIFACT_ID#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/artifact_id</UC4RB_NXS_ARTIFACT_IDs.00>
-<UC4RB_NXS_CLASSIFIERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_CLASSIFIER#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION"/>
-<UC4RB_NXS_EXTENSIONs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_EXTENSION#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION"/>
-<UC4RB_NXS_GROUP_IDs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_GROUP_ID#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/group_id</UC4RB_NXS_GROUP_IDs.00>
-<UC4RB_NXS_PACKAGINGs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_PACKAGING#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION"/>
-<UC4RB_NXS_REPOSITORYs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_REPOSITORY#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/repository</UC4RB_NXS_REPOSITORYs.00>
-<UC4RB_NXS_VERSIONs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_VERSION#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/version</UC4RB_NXS_VERSIONs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" name="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">
-<UC4RB_NXS_FOLDER_PATHs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_FOLDER_PATH#" promptsetname="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">&amp;UC4RB_ARTIFACT_DIR#</UC4RB_NXS_FOLDER_PATHs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-</dyntree>
+<dyntree/>
 </dynvalues>
 <CIT/>
 <calendars CCTypeAll="0" CCTypeExt="0" CCTypeNone="0" CCTypeOne="1" CaleOn="0"/>
@@ -281,46 +178,19 @@
 <dyntree>
 <node content="1" id="VALUE" name="Variables" parent="" type="VALUE">
 <VALUE state="1">
-<Values/>
+<Values>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_ARTIFACT_ID#" Value="EXT:@artifact/custom/artifact_id"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_BASE_URL#" Value="EXT:@artifact_source/custom/nexus_url"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_FOLDER_PATH#" Value="&amp;UC4RB_ARTIFACT_DIR#"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_GROUP_ID#" Value="EXT:@artifact/custom/group_id"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_PASSWORD#" Value="EXT:@artifact_source/custom/password"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_REPOSITORY#" Value="EXT:@artifact/custom/repository"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_USERNAME#" Value="EXT:@artifact_source/custom/username"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_VARA_NAME#" Value="&amp;UC4RB_ARTIFACT_VARA_NAME#"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_VERSION#" Value="EXT:@artifact/custom/version"/>
+</Values>
 <Mode>0</Mode>
 </VALUE>
-</node>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" prptmode="1">
-<UC4RB_NXS_BASE_URLs.00 altview="1" haslist="0">EXT:@artifact_source/custom/nexus_url</UC4RB_NXS_BASE_URLs.00>
-<UC4RB_NXS_USERNAMEs.00 altview="1" haslist="0">EXT:@artifact_source/custom/username</UC4RB_NXS_USERNAMEs.00>
-<UC4RB_NXS_PASSWORDs.00 altview="1" haslist="0">EXT:@artifact_source/custom/password</UC4RB_NXS_PASSWORDs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" prptmode="1">
-<UC4RB_NXS_GROUP_IDs.00 altview="1" haslist="0">EXT:@artifact/custom/group_id</UC4RB_NXS_GROUP_IDs.00>
-<UC4RB_NXS_ARTIFACT_IDs.00 altview="1" haslist="0">EXT:@artifact/custom/artifact_id</UC4RB_NXS_ARTIFACT_IDs.00>
-<UC4RB_NXS_VERSIONs.00 altview="1" haslist="0">EXT:@artifact/custom/version</UC4RB_NXS_VERSIONs.00>
-<UC4RB_NXS_REPOSITORYs.00 altview="1" haslist="0">EXT:@artifact/custom/repository</UC4RB_NXS_REPOSITORYs.00>
-<UC4RB_NXS_PACKAGINGs.00 altview="0" haslist="0"/>
-<UC4RB_NXS_CLASSIFIERs.00 altview="0" haslist="0"/>
-<UC4RB_NXS_EXTENSIONs.00 altview="0" haslist="0"/>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" name="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" prptmode="1">
-<UC4RB_NXS_FOLDER_PATHs.00 altview="1" haslist="0">&amp;UC4RB_ARTIFACT_DIR#</UC4RB_NXS_FOLDER_PATHs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" ontop="1">
-<PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" prptmode="1">
-<AGENTs.00 altview="1" haslist="0">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 altview="1" haslist="0">&amp;LOGIN#</LOGINs.00>
-</PRPTBOX>
-</PROMPTSET>
 </node>
 </dyntree>
 </DYNVALUES>

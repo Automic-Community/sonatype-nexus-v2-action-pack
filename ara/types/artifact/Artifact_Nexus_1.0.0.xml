@@ -18,7 +18,7 @@
     </Group>
   </Properties>
   <Description>Transfer artifact via Nexus</Description>
-  <ArtifactInstance>
+  <Artifact>
     <Properties>
       <Group name="ArtifactInfo" displayName="Artifact Information" expand="true">
 		  <Property name="group_id" displayName="Group ID" mode="MANDATORY" type="SingleLineText">
@@ -47,5 +47,5 @@
 			</Property>
 		</Group>
     </Properties>
-  </ArtifactInstance>
+  </Artifact>
 </ArtifactSourceType>
