@@ -62,7 +62,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="" BranchType="0" Col="2" Lnr="2" OType="JOBP" Object="PCK.AUTOMIC_NEXUS.PUB.ACTION.RETRIEVE_ARTIFACT" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_NEXUS.PRV.JOB.RETRIEVE_ARTIFACT_INFO@GENERIC" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="1" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="0" WElseH="1" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -87,50 +87,21 @@
 <node content="1" id="PVALUE" name="Parent Variables" parent="" type="TASKVALUE">
 <VALUE state="2">
 <Values>
-<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_CHECKSUM_EXTENSION#" Value="EXT:@artifact/custom/artifact_checksum_extension"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_ARTIFACT_ID#" Value="EXT:@artifact/custom/artifact_id"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_BASE_URL#" Value="EXT:@artifact_source/custom/nexus_url"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_FOLDER_PATH#" Value="&amp;UC4RB_ARTIFACT_DIR#"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_GROUP_ID#" Value="EXT:@artifact/custom/group_id"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_PASSWORD#" Value="EXT:@artifact_source/custom/password"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_REPOSITORY#" Value="EXT:@artifact/custom/repository"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_USERNAME#" Value="EXT:@artifact_source/custom/username"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_VARA_NAME#" Value="&amp;UC4RB_ARTIFACT_VARA_NAME#"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_VERSION#" Value="EXT:@artifact/custom/version"/>
 </Values>
 <Mode>0</Mode>
 </VALUE>
 </node>
 <node content="1" id="PRPTS" name="PromptSets" parent="" pref="1" type="PROMPTSET"/>
 <node content="0" id="PPRPTS" name="Parent PromptSets" parent="" type="PPROMPTSET"/>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">
-<UC4RB_NXS_BASE_URLs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_BASE_URL#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/nexus_url</UC4RB_NXS_BASE_URLs.00>
-<UC4RB_NXS_PASSWORDs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_PASSWORD#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/password</UC4RB_NXS_PASSWORDs.00>
-<UC4RB_NXS_USERNAMEs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_USERNAME#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.NEXUS_CONNECTION">EXT:@artifact_source/custom/username</UC4RB_NXS_USERNAMEs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">
-<UC4RB_NXS_ARTIFACT_IDs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_ARTIFACT_ID#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/artifact_id</UC4RB_NXS_ARTIFACT_IDs.00>
-<UC4RB_NXS_CLASSIFIERs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_CLASSIFIER#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/artifact_classifier</UC4RB_NXS_CLASSIFIERs.00>
-<UC4RB_NXS_EXTENSIONs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_EXTENSION#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/artifact_checksum_extension</UC4RB_NXS_EXTENSIONs.00>
-<UC4RB_NXS_GROUP_IDs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_GROUP_ID#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/group_id</UC4RB_NXS_GROUP_IDs.00>
-<UC4RB_NXS_PACKAGINGs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_PACKAGING#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/packaging_type</UC4RB_NXS_PACKAGINGs.00>
-<UC4RB_NXS_REPOSITORYs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_REPOSITORY#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/repository</UC4RB_NXS_REPOSITORYs.00>
-<UC4RB_NXS_VERSIONs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_VERSION#" promptsetname="PCK.AUTOMIC_NEXUS.PUB.PROMPTSET.ARTIFACT_INFORMATION">EXT:@artifact/custom/version</UC4RB_NXS_VERSIONs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" name="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">
-<PRPTBOX promptset="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">
-<UC4RB_NXS_FOLDER_PATHs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="UC4RB_NXS_FOLDER_PATH#" promptsetname="PCK.AUTOMIC_NEXUS.PRV.PROMPTSET.RETRIEVE_ARTIFACT">&amp;UC4RB_ARTIFACT_DIR#</UC4RB_NXS_FOLDER_PATHs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
-<LOGINs.00 ReadFromTable="JPPV" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
-</PRPTBOX>
-</PROMPTSET>
-</node>
 </dyntree>
 </dynvalues>
 <CIT/>
@@ -208,7 +179,15 @@
 <node content="1" id="VALUE" name="Variables" parent="" type="VALUE">
 <VALUE state="1">
 <Values>
-<row ERTUsage="0" Name="&amp;UC4RB_CHECKSUM_EXTENSION#" Value="EXT:@artifact/custom/artifact_checksum_extension"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_ARTIFACT_ID#" Value="EXT:@artifact/custom/artifact_id"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_BASE_URL#" Value="EXT:@artifact_source/custom/nexus_url"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_FOLDER_PATH#" Value="&amp;UC4RB_ARTIFACT_DIR#"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_GROUP_ID#" Value="EXT:@artifact/custom/group_id"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_PASSWORD#" Value="EXT:@artifact_source/custom/password"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_REPOSITORY#" Value="EXT:@artifact/custom/repository"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_USERNAME#" Value="EXT:@artifact_source/custom/username"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_VARA_NAME#" Value="&amp;UC4RB_ARTIFACT_VARA_NAME#"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_VERSION#" Value="EXT:@artifact/custom/version"/>
 </Values>
 <Mode>0</Mode>
 </VALUE>
@@ -232,11 +211,7 @@
 <FInclSubDirs>0</FInclSubDirs>
 </ROLLBACK>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[:SET &MISSING_CHECKSUM_PATH# = STR_STARTS_WITH(&UC4RB_CHECKSUM_EXTENSION#, "EXT:")
-:IF &MISSING_CHECKSUM_PATH# = "Y"
-:  PRINT "There is no checksum extension defined in this artifact to download."
-:  STOP NOMSG, 50, "There is no checksum extension defined in this artifact to download."
-:ENDIF]]></MSCRI>
+<MSCRI/>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>

@@ -18,7 +18,7 @@
     </Group>
   </Properties>
   <Description>Transfer artifact via Nexus</Description>
-  <ArtifactInstance>
+  <Artifact>
     <Properties>
       <Group name="ArtifactInfo" displayName="Artifact Information" expand="true">
 		  <Property name="group_id" displayName="Group ID" mode="MANDATORY" type="SingleLineText">
@@ -42,13 +42,10 @@
 			<Property name="artifact_extension" displayName="Artifact Extension" mode="EDITABLE" type="SingleLineText">
 			  <Description>Specify extension of the artifact.</Description>
 			</Property>
-			<Property name="artifact_checksum_extension" displayName="Artifact Checksum File Extension" mode="EDITABLE" type="SingleLineText">
-			  <Description>Specify extension of checksum file of the artifact.</Description>
-			</Property>
 			<Property name="archive_type" displayName="Archive Type" mode="EDITABLE" type="SingleChoice">
 			  <List>zip#;#tar#;#tar.gz</List>
 			</Property>
 		</Group>
     </Properties>
-  </ArtifactInstance>
+  </Artifact>
 </ArtifactSourceType>
