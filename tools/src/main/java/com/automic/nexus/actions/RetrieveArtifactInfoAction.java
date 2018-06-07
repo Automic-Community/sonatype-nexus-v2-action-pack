@@ -39,6 +39,7 @@ public class RetrieveArtifactInfoAction extends AbstractHttpAction {
     private String version;
     private String repository;
     private String archiveFilePath;
+    private String downloadChecksum;
 
     public RetrieveArtifactInfoAction() {
         addOption("groupid", true, "Group ID of the artifact");
@@ -46,6 +47,7 @@ public class RetrieveArtifactInfoAction extends AbstractHttpAction {
         addOption("version", true, "Version of the artifact");
         addOption("repository", true, "Repository in which the artifact is located");
         addOption("archivefilepath", true, "Target file path to save the artifact");
+        addOption("downloadchecksum", true, "Download and record checksum of downloaded file");
     }
 
     private void prepareInputParameters() throws AutomicException {
@@ -65,6 +67,9 @@ public class RetrieveArtifactInfoAction extends AbstractHttpAction {
 
             repository = getOptionValue("repository");
             NexusValidator.checkNotEmpty(repository, "Repository");
+            
+            downloadChecksum = getOptionValue("downloadchecksum");
+            NexusValidator.checkNotEmpty(downloadChecksum, "Download Checksum");
         } catch (AutomicException e) {
             LOGGER.error(e.getMessage());
             throw e;
@@ -89,8 +94,7 @@ public class RetrieveArtifactInfoAction extends AbstractHttpAction {
 
     private void prepareOutput(ClientResponse response) throws AutomicException {
         if (response.getStatus() != 200) {
- 		   throw new RuntimeException("Failed : HTTP error code : "
- 			+ response.getStatus());
+ 		   throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());
  		}
         String output = response.getEntity(String.class);
         try {
@@ -98,8 +102,12 @@ public class RetrieveArtifactInfoAction extends AbstractHttpAction {
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 			ResponseData responseData = (ResponseData) jaxbUnmarshaller.unmarshal(new StringReader(output));
 			NexusArtifactInfo artifactInfo = responseData.getData();
-			ConsoleWriter.writeln(artifactInfo.getArtifactFileName() + SPLITTER + artifactInfo.getSha1Checksum() + SPLITTER + buildFullArtifactPath(artifactInfo));
-			buildChecksumFile(artifactInfo);
+			String log = artifactInfo.getArtifactFileName() + SPLITTER + buildFullArtifactPath(artifactInfo);
+			if ("YES".equalsIgnoreCase(downloadChecksum)) {
+				log += SPLITTER + artifactInfo.getSha1Checksum();
+				buildChecksumFile(artifactInfo);
+			}
+			ConsoleWriter.writeln(log);
 		} catch (JAXBException e) {
 			LOGGER.error("Fail to parse response from Nexus. ", e);
 		} catch (IOException e) {
