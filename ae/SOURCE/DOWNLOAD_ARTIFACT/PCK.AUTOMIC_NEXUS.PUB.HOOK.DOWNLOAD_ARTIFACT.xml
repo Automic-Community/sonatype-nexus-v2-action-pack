@@ -89,7 +89,7 @@
 <Values>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_ARTIFACT_ID#" Value="EXT:@artifact/custom/artifact_id"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_BASE_URL#" Value="EXT:@artifact_source/custom/nexus_url"/>
-<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_DOWNLOAD_CHECKSUM#" Value="&amp;UC4RB_DOWNLOAD_CHECKSUM#"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_DOWNLOAD_CHECKSUM#" Value="YES"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_FOLDER_PATH#" Value="&amp;UC4RB_ARTIFACT_DIR#"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_GROUP_ID#" Value="EXT:@artifact/custom/group_id"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_PASSWORD#" Value="EXT:@artifact_source/custom/password"/>
@@ -153,7 +153,7 @@
 <task Alias="" BranchType="0" Col="3" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_NEXUS.PRV.JOB.RETRIEVE_ARTIFACT_INFO@GENERIC" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="1" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
-<when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="0" WElseH="1" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
+<when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
 <preconditions>
 <PreCon>
 <conditions id="CONDITIONS"/>
@@ -177,7 +177,7 @@
 <Values>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_ARTIFACT_ID#" Value="EXT:@artifact/custom/artifact_id"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_BASE_URL#" Value="EXT:@artifact_source/custom/nexus_url"/>
-<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_DOWNLOAD_CHECKSUM#" Value="&amp;UC4RB_DOWNLOAD_CHECKSUM#"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_DOWNLOAD_CHECKSUM#" Value="YES"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_FOLDER_PATH#" Value="&amp;UC4RB_ARTIFACT_DIR#"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_GROUP_ID#" Value="EXT:@artifact/custom/group_id"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_PASSWORD#" Value="EXT:@artifact_source/custom/password"/>
@@ -270,7 +270,7 @@
 <Values>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_ARTIFACT_ID#" Value="EXT:@artifact/custom/artifact_id"/>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_BASE_URL#" Value="EXT:@artifact_source/custom/nexus_url"/>
-<row ERTUsage="0" Name="&amp;UC4RB_NXS_DOWNLOAD_CHECKSUM#" Value="&amp;UC4RB_DOWNLOAD_CHECKSUM#"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_DOWNLOAD_CHECKSUM#" Value="YES"/>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_FOLDER_PATH#" Value="&amp;UC4RB_ARTIFACT_DIR#"/>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_GROUP_ID#" Value="EXT:@artifact/custom/group_id"/>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_PASSWORD#" Value="EXT:@artifact_source/custom/password"/>
@@ -301,7 +301,9 @@
 <FInclSubDirs>0</FInclSubDirs>
 </ROLLBACK>
 <SCRIPT mode="1" state="1">
-<MSCRI/>
+<MSCRI><![CDATA[:IF &UC4RB_CHECKSUM_OPTION# = "IGNORE"
+:  SET &UC4RB_NXS_DOWNLOAD_CHECKSUM# = "NO"
+:ENDIF]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
