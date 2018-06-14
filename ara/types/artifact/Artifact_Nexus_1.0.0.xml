@@ -3,6 +3,9 @@
   <Name>Nexus</Name>
   <Properties>
     <Group name="Connection" displayName="Connection" expand="true">
+	  <Property name="protocol" displayName="Protocol" mode="READONLY" type="SingleLineText">
+        <Defaultvalue>NEXUS</Defaultvalue>
+      </Property>
       <Property name="nexus_url" displayName="Nexus URL" mode="MANDATORY" type="SingleLineText">
 		<Description>Specify URL of your Nexus repository. Example http://127.0.0.1:8081/nexus/</Description>
       </Property>
@@ -11,9 +14,6 @@
       </Property>
       <Property name="password" displayName="Password" mode="EDITABLE" type="Protected">
         <Description>Specify your Nexus repository password.</Description>
-      </Property>
-	  <Property name="protocol" displayName="Transfer Protocol" mode="READONLY" type="SingleLineText">
-        <Defaultvalue>NEXUS</Defaultvalue>
       </Property>
     </Group>
   </Properties>
