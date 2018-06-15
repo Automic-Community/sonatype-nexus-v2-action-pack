@@ -89,9 +89,12 @@
 <Values>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_ARTIFACT_ID#" Value="EXT:@artifact/custom/artifact_id"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_BASE_URL#" Value="EXT:@artifact_source/custom/nexus_url"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_CLASSIFIER#" Value="EXT:@artifact/custom/artifact_classifier"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_DOWNLOAD_CHECKSUM#" Value="YES"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_EXTENSION#" Value="EXT:@artifact/custom/artifact_extension"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_FOLDER_PATH#" Value="&amp;UC4RB_ARTIFACT_DIR#"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_GROUP_ID#" Value="EXT:@artifact/custom/group_id"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_PACKAGING#" Value="EXT:@artifact/custom/packaging_type"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_PASSWORD#" Value="EXT:@artifact_source/custom/password"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_REPOSITORY#" Value="EXT:@artifact/custom/repository"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_USERNAME#" Value="EXT:@artifact_source/custom/username"/>
@@ -177,9 +180,12 @@
 <Values>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_ARTIFACT_ID#" Value="EXT:@artifact/custom/artifact_id"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_BASE_URL#" Value="EXT:@artifact_source/custom/nexus_url"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_CLASSIFIER#" Value="EXT:@artifact/custom/artifact_classifier"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_DOWNLOAD_CHECKSUM#" Value="YES"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_EXTENSION#" Value="EXT:@artifact/custom/artifact_extension"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_FOLDER_PATH#" Value="&amp;UC4RB_ARTIFACT_DIR#"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_GROUP_ID#" Value="EXT:@artifact/custom/group_id"/>
+<row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_PACKAGING#" Value="EXT:@artifact/custom/packaging_type"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_PASSWORD#" Value="EXT:@artifact_source/custom/password"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_REPOSITORY#" Value="EXT:@artifact/custom/repository"/>
 <row ERTUsage="0" Mod="0" Name="&amp;UC4RB_NXS_USERNAME#" Value="EXT:@artifact_source/custom/username"/>
@@ -270,9 +276,12 @@
 <Values>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_ARTIFACT_ID#" Value="EXT:@artifact/custom/artifact_id"/>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_BASE_URL#" Value="EXT:@artifact_source/custom/nexus_url"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_CLASSIFIER#" Value="EXT:@artifact/custom/artifact_classifier"/>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_DOWNLOAD_CHECKSUM#" Value="YES"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_EXTENSION#" Value="EXT:@artifact/custom/artifact_extension"/>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_FOLDER_PATH#" Value="&amp;UC4RB_ARTIFACT_DIR#"/>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_GROUP_ID#" Value="EXT:@artifact/custom/group_id"/>
+<row ERTUsage="0" Name="&amp;UC4RB_NXS_PACKAGING#" Value="EXT:@artifact/custom/packaging_type"/>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_PASSWORD#" Value="EXT:@artifact_source/custom/password"/>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_REPOSITORY#" Value="EXT:@artifact/custom/repository"/>
 <row ERTUsage="0" Name="&amp;UC4RB_NXS_USERNAME#" Value="EXT:@artifact_source/custom/username"/>
