@@ -17,6 +17,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.automic.nexus.exception.AutomicException;
+import com.automic.nexus.util.CommonUtil;
 import com.automic.nexus.util.ConsoleWriter;
 import com.automic.nexus.util.validator.NexusValidator;
 import com.sun.jersey.api.client.ClientResponse;
@@ -40,6 +41,9 @@ public class RetrieveArtifactInfoAction extends AbstractHttpAction {
     private String repository;
     private String archiveFilePath;
     private String downloadChecksum;
+    private String packaging;
+    private String classifier;
+    private String extension;
 
     public RetrieveArtifactInfoAction() {
         addOption("groupid", true, "Group ID of the artifact");
@@ -47,6 +51,9 @@ public class RetrieveArtifactInfoAction extends AbstractHttpAction {
         addOption("version", true, "Version of the artifact");
         addOption("repository", true, "Repository in which the artifact is located");
         addOption("archivefilepath", true, "Target file path to save the artifact");
+        addOption("packaging", false, "Packaging type of artifact");
+        addOption("classifier", false, "Classifier of the artifact");
+        addOption("extension", false, "Extension of the artifact");
         addOption("downloadchecksum", true, "Download and record checksum of downloaded file");
     }
 
@@ -70,6 +77,12 @@ public class RetrieveArtifactInfoAction extends AbstractHttpAction {
             
             downloadChecksum = getOptionValue("downloadchecksum");
             NexusValidator.checkNotEmpty(downloadChecksum, "Download Checksum");
+            
+            packaging = getOptionValue("packaging");
+
+            classifier = getOptionValue("classifier");
+            
+            extension = getOptionValue("extension");
         } catch (AutomicException e) {
             LOGGER.error(e.getMessage());
             throw e;
@@ -85,6 +98,15 @@ public class RetrieveArtifactInfoAction extends AbstractHttpAction {
         webResource = webResource.path("service").path("local").path("artifact").path("maven").path("resolve")
                 .queryParam("g", groupID).queryParam("v", version).queryParam("r", repository)
                 .queryParam("a", artifactID);
+        if (CommonUtil.checkNotEmpty(packaging)) {
+            webResource = webResource.queryParam("p", packaging);
+        }
+        if (CommonUtil.checkNotEmpty(classifier)) {
+            webResource = webResource.queryParam("c", classifier);
+        }
+        if (CommonUtil.checkNotEmpty(extension)) {
+            webResource = webResource.queryParam("e", extension);
+        }
         LOGGER.info("Calling url " + webResource.getURI());
 
         response = webResource.get(ClientResponse.class);
